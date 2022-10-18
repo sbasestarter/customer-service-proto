@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+option go_package = "github.com/sgostarter/customer-service-proto/gens/customertalkpb/customertalkpb;customertalkpb";
+option java_multiple_files = true;
+option java_package = "com.patdz.customertalk";
+option java_outer_classname = "CustomerTalkProto";
+
+message Empty {
+
+}
+
+enum TalkStatus {
+  TALK_STATUS_UNSPECIFIED = 0;
+  TALK_STATUS_OPENED = 1;
+  TALK_STATUS_CLOSED = 2;
+}
+
+message TalkInfo {
+  string talk_id = 1;
+  TalkStatus status = 2;
+  string title = 3;
+  uint64 started_at = 4;
+  uint64 finished_at = 5;
+}
+
+message QueryTalksRequest {
+  repeated TalkStatus statuses = 1;
+}
+
+message QueryTalksResponse {
+  repeated TalkInfo talks = 1;
+}
+
+
+message TalkMessage {
+  string uuid = 1;
+  uint64 at = 2;
+  bool customer_message = 3;
+
+  oneof Message {
+    string text = 20;
+    bytes image = 21;
+  }
+}
+
+message TalkCreateRequest {
+  string title = 1;
+}
+
+message TalkOpenRequest {
+  string talk_id = 1;
+}
+
+message TalkRequest {
+  oneof Talk {
+    TalkCreateRequest create = 1;
+    TalkOpenRequest open = 2;
+    TalkMessage message = 3;
+  }
+}
+
+message TalkMessages {
+  repeated TalkMessage messages = 1;
+}
+
+message TalkMessageReply {
+
+}
+
+message TalkResponse {
+  oneof Talk {
+    TalkMessages messages = 1;
+    TalkMessage message = 2;
+    TalkMessageReply reply = 3;
+  }
+}
+
+service CustomerTalkService {
+  rpc QueryTalks(QueryTalksRequest) returns (QueryTalksResponse) {}
+
+  rpc Talk(stream TalkRequest) returns (stream TalkResponse) {}
+}
