@@ -133,6 +133,214 @@ var _ interface {
 	ErrorName() string
 } = EmptyValidationError{}
 
+// Validate checks the field values on TalkKickOutMessage with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *TalkKickOutMessage) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on TalkKickOutMessage with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// TalkKickOutMessageMultiError, or nil if none found.
+func (m *TalkKickOutMessage) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *TalkKickOutMessage) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Code
+
+	// no validation rules for Message
+
+	if len(errors) > 0 {
+		return TalkKickOutMessageMultiError(errors)
+	}
+
+	return nil
+}
+
+// TalkKickOutMessageMultiError is an error wrapping multiple validation errors
+// returned by TalkKickOutMessage.ValidateAll() if the designated constraints
+// aren't met.
+type TalkKickOutMessageMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m TalkKickOutMessageMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m TalkKickOutMessageMultiError) AllErrors() []error { return m }
+
+// TalkKickOutMessageValidationError is the validation error returned by
+// TalkKickOutMessage.Validate if the designated constraints aren't met.
+type TalkKickOutMessageValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TalkKickOutMessageValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TalkKickOutMessageValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TalkKickOutMessageValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TalkKickOutMessageValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TalkKickOutMessageValidationError) ErrorName() string {
+	return "TalkKickOutMessageValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e TalkKickOutMessageValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTalkKickOutMessage.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TalkKickOutMessageValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TalkKickOutMessageValidationError{}
+
+// Validate checks the field values on QueryTalksRequest with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *QueryTalksRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on QueryTalksRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// QueryTalksRequestMultiError, or nil if none found.
+func (m *QueryTalksRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *QueryTalksRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return QueryTalksRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// QueryTalksRequestMultiError is an error wrapping multiple validation errors
+// returned by QueryTalksRequest.ValidateAll() if the designated constraints
+// aren't met.
+type QueryTalksRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m QueryTalksRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m QueryTalksRequestMultiError) AllErrors() []error { return m }
+
+// QueryTalksRequestValidationError is the validation error returned by
+// QueryTalksRequest.Validate if the designated constraints aren't met.
+type QueryTalksRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e QueryTalksRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e QueryTalksRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e QueryTalksRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e QueryTalksRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e QueryTalksRequestValidationError) ErrorName() string {
+	return "QueryTalksRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e QueryTalksRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sQueryTalksRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = QueryTalksRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = QueryTalksRequestValidationError{}
+
 // Validate checks the field values on TalkInfo with the rules defined in the
 // proto definition for this message. If any rules are violated, the first
 // error encountered is returned, or nil if there are no violations.
@@ -241,108 +449,6 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = TalkInfoValidationError{}
-
-// Validate checks the field values on QueryTalksRequest with the rules defined
-// in the proto definition for this message. If any rules are violated, the
-// first error encountered is returned, or nil if there are no violations.
-func (m *QueryTalksRequest) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on QueryTalksRequest with the rules
-// defined in the proto definition for this message. If any rules are
-// violated, the result is a list of violation errors wrapped in
-// QueryTalksRequestMultiError, or nil if none found.
-func (m *QueryTalksRequest) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *QueryTalksRequest) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	if len(errors) > 0 {
-		return QueryTalksRequestMultiError(errors)
-	}
-
-	return nil
-}
-
-// QueryTalksRequestMultiError is an error wrapping multiple validation errors
-// returned by QueryTalksRequest.ValidateAll() if the designated constraints
-// aren't met.
-type QueryTalksRequestMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m QueryTalksRequestMultiError) Error() string {
-	var msgs []string
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m QueryTalksRequestMultiError) AllErrors() []error { return m }
-
-// QueryTalksRequestValidationError is the validation error returned by
-// QueryTalksRequest.Validate if the designated constraints aren't met.
-type QueryTalksRequestValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e QueryTalksRequestValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e QueryTalksRequestValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e QueryTalksRequestValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e QueryTalksRequestValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e QueryTalksRequestValidationError) ErrorName() string {
-	return "QueryTalksRequestValidationError"
-}
-
-// Error satisfies the builtin error interface
-func (e QueryTalksRequestValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sQueryTalksRequest.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = QueryTalksRequestValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = QueryTalksRequestValidationError{}
 
 // Validate checks the field values on QueryTalksResponse with the rules
 // defined in the proto definition for this message. If any rules are
@@ -479,121 +585,6 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = QueryTalksResponseValidationError{}
-
-// Validate checks the field values on TalkMessage with the rules defined in
-// the proto definition for this message. If any rules are violated, the first
-// error encountered is returned, or nil if there are no violations.
-func (m *TalkMessage) Validate() error {
-	return m.validate(false)
-}
-
-// ValidateAll checks the field values on TalkMessage with the rules defined in
-// the proto definition for this message. If any rules are violated, the
-// result is a list of violation errors wrapped in TalkMessageMultiError, or
-// nil if none found.
-func (m *TalkMessage) ValidateAll() error {
-	return m.validate(true)
-}
-
-func (m *TalkMessage) validate(all bool) error {
-	if m == nil {
-		return nil
-	}
-
-	var errors []error
-
-	// no validation rules for Uuid
-
-	// no validation rules for At
-
-	// no validation rules for CustomerMessage
-
-	switch m.Message.(type) {
-
-	case *TalkMessage_Text:
-		// no validation rules for Text
-
-	case *TalkMessage_Image:
-		// no validation rules for Image
-
-	}
-
-	if len(errors) > 0 {
-		return TalkMessageMultiError(errors)
-	}
-
-	return nil
-}
-
-// TalkMessageMultiError is an error wrapping multiple validation errors
-// returned by TalkMessage.ValidateAll() if the designated constraints aren't met.
-type TalkMessageMultiError []error
-
-// Error returns a concatenation of all the error messages it wraps.
-func (m TalkMessageMultiError) Error() string {
-	var msgs []string
-	for _, err := range m {
-		msgs = append(msgs, err.Error())
-	}
-	return strings.Join(msgs, "; ")
-}
-
-// AllErrors returns a list of validation violation errors.
-func (m TalkMessageMultiError) AllErrors() []error { return m }
-
-// TalkMessageValidationError is the validation error returned by
-// TalkMessage.Validate if the designated constraints aren't met.
-type TalkMessageValidationError struct {
-	field  string
-	reason string
-	cause  error
-	key    bool
-}
-
-// Field function returns field value.
-func (e TalkMessageValidationError) Field() string { return e.field }
-
-// Reason function returns reason value.
-func (e TalkMessageValidationError) Reason() string { return e.reason }
-
-// Cause function returns cause value.
-func (e TalkMessageValidationError) Cause() error { return e.cause }
-
-// Key function returns key value.
-func (e TalkMessageValidationError) Key() bool { return e.key }
-
-// ErrorName returns error name.
-func (e TalkMessageValidationError) ErrorName() string { return "TalkMessageValidationError" }
-
-// Error satisfies the builtin error interface
-func (e TalkMessageValidationError) Error() string {
-	cause := ""
-	if e.cause != nil {
-		cause = fmt.Sprintf(" | caused by: %v", e.cause)
-	}
-
-	key := ""
-	if e.key {
-		key = "key for "
-	}
-
-	return fmt.Sprintf(
-		"invalid %sTalkMessage.%s: %s%s",
-		key,
-		e.field,
-		e.reason,
-		cause)
-}
-
-var _ error = TalkMessageValidationError{}
-
-var _ interface {
-	Field() string
-	Reason() string
-	Key() bool
-	Cause() error
-	ErrorName() string
-} = TalkMessageValidationError{}
 
 // Validate checks the field values on TalkCreateRequest with the rules defined
 // in the proto definition for this message. If any rules are violated, the
@@ -801,6 +792,329 @@ var _ interface {
 	ErrorName() string
 } = TalkOpenRequestValidationError{}
 
+// Validate checks the field values on TalkMessageW with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *TalkMessageW) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on TalkMessageW with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in TalkMessageWMultiError, or
+// nil if none found.
+func (m *TalkMessageW) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *TalkMessageW) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for SeqId
+
+	switch m.Message.(type) {
+
+	case *TalkMessageW_Text:
+		// no validation rules for Text
+
+	case *TalkMessageW_Image:
+		// no validation rules for Image
+
+	}
+
+	if len(errors) > 0 {
+		return TalkMessageWMultiError(errors)
+	}
+
+	return nil
+}
+
+// TalkMessageWMultiError is an error wrapping multiple validation errors
+// returned by TalkMessageW.ValidateAll() if the designated constraints aren't met.
+type TalkMessageWMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m TalkMessageWMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m TalkMessageWMultiError) AllErrors() []error { return m }
+
+// TalkMessageWValidationError is the validation error returned by
+// TalkMessageW.Validate if the designated constraints aren't met.
+type TalkMessageWValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TalkMessageWValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TalkMessageWValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TalkMessageWValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TalkMessageWValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TalkMessageWValidationError) ErrorName() string { return "TalkMessageWValidationError" }
+
+// Error satisfies the builtin error interface
+func (e TalkMessageWValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTalkMessageW.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TalkMessageWValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TalkMessageWValidationError{}
+
+// Validate checks the field values on TalkMessage with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *TalkMessage) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on TalkMessage with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in TalkMessageMultiError, or
+// nil if none found.
+func (m *TalkMessage) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *TalkMessage) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for At
+
+	// no validation rules for CustomerMessage
+
+	switch m.Message.(type) {
+
+	case *TalkMessage_Text:
+		// no validation rules for Text
+
+	case *TalkMessage_Image:
+		// no validation rules for Image
+
+	}
+
+	if len(errors) > 0 {
+		return TalkMessageMultiError(errors)
+	}
+
+	return nil
+}
+
+// TalkMessageMultiError is an error wrapping multiple validation errors
+// returned by TalkMessage.ValidateAll() if the designated constraints aren't met.
+type TalkMessageMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m TalkMessageMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m TalkMessageMultiError) AllErrors() []error { return m }
+
+// TalkMessageValidationError is the validation error returned by
+// TalkMessage.Validate if the designated constraints aren't met.
+type TalkMessageValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TalkMessageValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TalkMessageValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TalkMessageValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TalkMessageValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TalkMessageValidationError) ErrorName() string { return "TalkMessageValidationError" }
+
+// Error satisfies the builtin error interface
+func (e TalkMessageValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTalkMessage.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TalkMessageValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TalkMessageValidationError{}
+
+// Validate checks the field values on TalkClose with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *TalkClose) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on TalkClose with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in TalkCloseMultiError, or nil
+// if none found.
+func (m *TalkClose) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *TalkClose) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return TalkCloseMultiError(errors)
+	}
+
+	return nil
+}
+
+// TalkCloseMultiError is an error wrapping multiple validation errors returned
+// by TalkClose.ValidateAll() if the designated constraints aren't met.
+type TalkCloseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m TalkCloseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m TalkCloseMultiError) AllErrors() []error { return m }
+
+// TalkCloseValidationError is the validation error returned by
+// TalkClose.Validate if the designated constraints aren't met.
+type TalkCloseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TalkCloseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TalkCloseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TalkCloseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TalkCloseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TalkCloseValidationError) ErrorName() string { return "TalkCloseValidationError" }
+
+// Error satisfies the builtin error interface
+func (e TalkCloseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTalkClose.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TalkCloseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TalkCloseValidationError{}
+
 // Validate checks the field values on TalkRequest with the rules defined in
 // the proto definition for this message. If any rules are violated, the first
 // error encountered is returned, or nil if there are no violations.
@@ -912,6 +1226,37 @@ func (m *TalkRequest) validate(all bool) error {
 			if err := v.Validate(); err != nil {
 				return TalkRequestValidationError{
 					field:  "Message",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *TalkRequest_Close:
+
+		if all {
+			switch v := interface{}(m.GetClose()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, TalkRequestValidationError{
+						field:  "Close",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, TalkRequestValidationError{
+						field:  "Close",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetClose()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return TalkRequestValidationError{
+					field:  "Close",
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
@@ -1130,42 +1475,46 @@ var _ interface {
 	ErrorName() string
 } = TalkMessagesValidationError{}
 
-// Validate checks the field values on TalkMessageReply with the rules defined
-// in the proto definition for this message. If any rules are violated, the
-// first error encountered is returned, or nil if there are no violations.
-func (m *TalkMessageReply) Validate() error {
+// Validate checks the field values on TalkMessageConfirmed with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *TalkMessageConfirmed) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on TalkMessageReply with the rules
+// ValidateAll checks the field values on TalkMessageConfirmed with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the result is a list of violation errors wrapped in
-// TalkMessageReplyMultiError, or nil if none found.
-func (m *TalkMessageReply) ValidateAll() error {
+// TalkMessageConfirmedMultiError, or nil if none found.
+func (m *TalkMessageConfirmed) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *TalkMessageReply) validate(all bool) error {
+func (m *TalkMessageConfirmed) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
 
 	var errors []error
 
+	// no validation rules for SeqId
+
+	// no validation rules for At
+
 	if len(errors) > 0 {
-		return TalkMessageReplyMultiError(errors)
+		return TalkMessageConfirmedMultiError(errors)
 	}
 
 	return nil
 }
 
-// TalkMessageReplyMultiError is an error wrapping multiple validation errors
-// returned by TalkMessageReply.ValidateAll() if the designated constraints
-// aren't met.
-type TalkMessageReplyMultiError []error
+// TalkMessageConfirmedMultiError is an error wrapping multiple validation
+// errors returned by TalkMessageConfirmed.ValidateAll() if the designated
+// constraints aren't met.
+type TalkMessageConfirmedMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m TalkMessageReplyMultiError) Error() string {
+func (m TalkMessageConfirmedMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -1174,11 +1523,11 @@ func (m TalkMessageReplyMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m TalkMessageReplyMultiError) AllErrors() []error { return m }
+func (m TalkMessageConfirmedMultiError) AllErrors() []error { return m }
 
-// TalkMessageReplyValidationError is the validation error returned by
-// TalkMessageReply.Validate if the designated constraints aren't met.
-type TalkMessageReplyValidationError struct {
+// TalkMessageConfirmedValidationError is the validation error returned by
+// TalkMessageConfirmed.Validate if the designated constraints aren't met.
+type TalkMessageConfirmedValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -1186,22 +1535,24 @@ type TalkMessageReplyValidationError struct {
 }
 
 // Field function returns field value.
-func (e TalkMessageReplyValidationError) Field() string { return e.field }
+func (e TalkMessageConfirmedValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e TalkMessageReplyValidationError) Reason() string { return e.reason }
+func (e TalkMessageConfirmedValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e TalkMessageReplyValidationError) Cause() error { return e.cause }
+func (e TalkMessageConfirmedValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e TalkMessageReplyValidationError) Key() bool { return e.key }
+func (e TalkMessageConfirmedValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e TalkMessageReplyValidationError) ErrorName() string { return "TalkMessageReplyValidationError" }
+func (e TalkMessageConfirmedValidationError) ErrorName() string {
+	return "TalkMessageConfirmedValidationError"
+}
 
 // Error satisfies the builtin error interface
-func (e TalkMessageReplyValidationError) Error() string {
+func (e TalkMessageConfirmedValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -1213,14 +1564,14 @@ func (e TalkMessageReplyValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sTalkMessageReply.%s: %s%s",
+		"invalid %sTalkMessageConfirmed.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = TalkMessageReplyValidationError{}
+var _ error = TalkMessageConfirmedValidationError{}
 
 var _ interface {
 	Field() string
@@ -1228,7 +1579,7 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = TalkMessageReplyValidationError{}
+} = TalkMessageConfirmedValidationError{}
 
 // Validate checks the field values on TalkResponse with the rules defined in
 // the proto definition for this message. If any rules are violated, the first
@@ -1253,6 +1604,37 @@ func (m *TalkResponse) validate(all bool) error {
 	var errors []error
 
 	switch m.Talk.(type) {
+
+	case *TalkResponse_KickOut:
+
+		if all {
+			switch v := interface{}(m.GetKickOut()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, TalkResponseValidationError{
+						field:  "KickOut",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, TalkResponseValidationError{
+						field:  "KickOut",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetKickOut()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return TalkResponseValidationError{
+					field:  "KickOut",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
 
 	case *TalkResponse_Messages:
 
@@ -1316,14 +1698,14 @@ func (m *TalkResponse) validate(all bool) error {
 			}
 		}
 
-	case *TalkResponse_Reply:
+	case *TalkResponse_MessageConfirmed:
 
 		if all {
-			switch v := interface{}(m.GetReply()).(type) {
+			switch v := interface{}(m.GetMessageConfirmed()).(type) {
 			case interface{ ValidateAll() error }:
 				if err := v.ValidateAll(); err != nil {
 					errors = append(errors, TalkResponseValidationError{
-						field:  "Reply",
+						field:  "MessageConfirmed",
 						reason: "embedded message failed validation",
 						cause:  err,
 					})
@@ -1331,16 +1713,47 @@ func (m *TalkResponse) validate(all bool) error {
 			case interface{ Validate() error }:
 				if err := v.Validate(); err != nil {
 					errors = append(errors, TalkResponseValidationError{
-						field:  "Reply",
+						field:  "MessageConfirmed",
 						reason: "embedded message failed validation",
 						cause:  err,
 					})
 				}
 			}
-		} else if v, ok := interface{}(m.GetReply()).(interface{ Validate() error }); ok {
+		} else if v, ok := interface{}(m.GetMessageConfirmed()).(interface{ Validate() error }); ok {
 			if err := v.Validate(); err != nil {
 				return TalkResponseValidationError{
-					field:  "Reply",
+					field:  "MessageConfirmed",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *TalkResponse_Close:
+
+		if all {
+			switch v := interface{}(m.GetClose()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, TalkResponseValidationError{
+						field:  "Close",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, TalkResponseValidationError{
+						field:  "Close",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetClose()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return TalkResponseValidationError{
+					field:  "Close",
 					reason: "embedded message failed validation",
 					cause:  err,
 				}
@@ -1425,3 +1838,2612 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = TalkResponseValidationError{}
+
+// Validate checks the field values on ServiceQueryAttachedTalksRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ServiceQueryAttachedTalksRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceQueryAttachedTalksRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// ServiceQueryAttachedTalksRequestMultiError, or nil if none found.
+func (m *ServiceQueryAttachedTalksRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceQueryAttachedTalksRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return ServiceQueryAttachedTalksRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceQueryAttachedTalksRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ServiceQueryAttachedTalksRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ServiceQueryAttachedTalksRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceQueryAttachedTalksRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceQueryAttachedTalksRequestMultiError) AllErrors() []error { return m }
+
+// ServiceQueryAttachedTalksRequestValidationError is the validation error
+// returned by ServiceQueryAttachedTalksRequest.Validate if the designated
+// constraints aren't met.
+type ServiceQueryAttachedTalksRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceQueryAttachedTalksRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceQueryAttachedTalksRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceQueryAttachedTalksRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceQueryAttachedTalksRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceQueryAttachedTalksRequestValidationError) ErrorName() string {
+	return "ServiceQueryAttachedTalksRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServiceQueryAttachedTalksRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceQueryAttachedTalksRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceQueryAttachedTalksRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceQueryAttachedTalksRequestValidationError{}
+
+// Validate checks the field values on ServiceQueryPendingTalksRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ServiceQueryPendingTalksRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceQueryPendingTalksRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// ServiceQueryPendingTalksRequestMultiError, or nil if none found.
+func (m *ServiceQueryPendingTalksRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceQueryPendingTalksRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return ServiceQueryPendingTalksRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceQueryPendingTalksRequestMultiError is an error wrapping multiple
+// validation errors returned by ServiceQueryPendingTalksRequest.ValidateAll()
+// if the designated constraints aren't met.
+type ServiceQueryPendingTalksRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceQueryPendingTalksRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceQueryPendingTalksRequestMultiError) AllErrors() []error { return m }
+
+// ServiceQueryPendingTalksRequestValidationError is the validation error
+// returned by ServiceQueryPendingTalksRequest.Validate if the designated
+// constraints aren't met.
+type ServiceQueryPendingTalksRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceQueryPendingTalksRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceQueryPendingTalksRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceQueryPendingTalksRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceQueryPendingTalksRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceQueryPendingTalksRequestValidationError) ErrorName() string {
+	return "ServiceQueryPendingTalksRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServiceQueryPendingTalksRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceQueryPendingTalksRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceQueryPendingTalksRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceQueryPendingTalksRequestValidationError{}
+
+// Validate checks the field values on ServiceReloadTalkRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ServiceReloadTalkRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceReloadTalkRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServiceReloadTalkRequestMultiError, or nil if none found.
+func (m *ServiceReloadTalkRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceReloadTalkRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TalkId
+
+	if len(errors) > 0 {
+		return ServiceReloadTalkRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceReloadTalkRequestMultiError is an error wrapping multiple validation
+// errors returned by ServiceReloadTalkRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ServiceReloadTalkRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceReloadTalkRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceReloadTalkRequestMultiError) AllErrors() []error { return m }
+
+// ServiceReloadTalkRequestValidationError is the validation error returned by
+// ServiceReloadTalkRequest.Validate if the designated constraints aren't met.
+type ServiceReloadTalkRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceReloadTalkRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceReloadTalkRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceReloadTalkRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceReloadTalkRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceReloadTalkRequestValidationError) ErrorName() string {
+	return "ServiceReloadTalkRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServiceReloadTalkRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceReloadTalkRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceReloadTalkRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceReloadTalkRequestValidationError{}
+
+// Validate checks the field values on ServicePostMessage with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ServicePostMessage) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServicePostMessage with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServicePostMessageMultiError, or nil if none found.
+func (m *ServicePostMessage) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServicePostMessage) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TalkId
+
+	if all {
+		switch v := interface{}(m.GetMessage()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ServicePostMessageValidationError{
+					field:  "Message",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ServicePostMessageValidationError{
+					field:  "Message",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetMessage()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ServicePostMessageValidationError{
+				field:  "Message",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return ServicePostMessageMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServicePostMessageMultiError is an error wrapping multiple validation errors
+// returned by ServicePostMessage.ValidateAll() if the designated constraints
+// aren't met.
+type ServicePostMessageMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServicePostMessageMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServicePostMessageMultiError) AllErrors() []error { return m }
+
+// ServicePostMessageValidationError is the validation error returned by
+// ServicePostMessage.Validate if the designated constraints aren't met.
+type ServicePostMessageValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServicePostMessageValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServicePostMessageValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServicePostMessageValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServicePostMessageValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServicePostMessageValidationError) ErrorName() string {
+	return "ServicePostMessageValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServicePostMessageValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServicePostMessage.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServicePostMessageValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServicePostMessageValidationError{}
+
+// Validate checks the field values on ServiceAttachRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ServiceAttachRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceAttachRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServiceAttachRequestMultiError, or nil if none found.
+func (m *ServiceAttachRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceAttachRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TalkId
+
+	if len(errors) > 0 {
+		return ServiceAttachRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceAttachRequestMultiError is an error wrapping multiple validation
+// errors returned by ServiceAttachRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ServiceAttachRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceAttachRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceAttachRequestMultiError) AllErrors() []error { return m }
+
+// ServiceAttachRequestValidationError is the validation error returned by
+// ServiceAttachRequest.Validate if the designated constraints aren't met.
+type ServiceAttachRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceAttachRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceAttachRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceAttachRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceAttachRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceAttachRequestValidationError) ErrorName() string {
+	return "ServiceAttachRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServiceAttachRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceAttachRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceAttachRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceAttachRequestValidationError{}
+
+// Validate checks the field values on ServiceDetachRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ServiceDetachRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceDetachRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServiceDetachRequestMultiError, or nil if none found.
+func (m *ServiceDetachRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceDetachRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TalkId
+
+	if len(errors) > 0 {
+		return ServiceDetachRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceDetachRequestMultiError is an error wrapping multiple validation
+// errors returned by ServiceDetachRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ServiceDetachRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceDetachRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceDetachRequestMultiError) AllErrors() []error { return m }
+
+// ServiceDetachRequestValidationError is the validation error returned by
+// ServiceDetachRequest.Validate if the designated constraints aren't met.
+type ServiceDetachRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceDetachRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceDetachRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceDetachRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceDetachRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceDetachRequestValidationError) ErrorName() string {
+	return "ServiceDetachRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServiceDetachRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceDetachRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceDetachRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceDetachRequestValidationError{}
+
+// Validate checks the field values on ServiceRequest with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ServiceRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceRequest with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in ServiceRequestMultiError,
+// or nil if none found.
+func (m *ServiceRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	switch m.Request.(type) {
+
+	case *ServiceRequest_AttachedTalks:
+
+		if all {
+			switch v := interface{}(m.GetAttachedTalks()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceRequestValidationError{
+						field:  "AttachedTalks",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceRequestValidationError{
+						field:  "AttachedTalks",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetAttachedTalks()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceRequestValidationError{
+					field:  "AttachedTalks",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *ServiceRequest_PendingTalks:
+
+		if all {
+			switch v := interface{}(m.GetPendingTalks()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceRequestValidationError{
+						field:  "PendingTalks",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceRequestValidationError{
+						field:  "PendingTalks",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPendingTalks()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceRequestValidationError{
+					field:  "PendingTalks",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *ServiceRequest_Reload:
+
+		if all {
+			switch v := interface{}(m.GetReload()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceRequestValidationError{
+						field:  "Reload",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceRequestValidationError{
+						field:  "Reload",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetReload()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceRequestValidationError{
+					field:  "Reload",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *ServiceRequest_Message:
+
+		if all {
+			switch v := interface{}(m.GetMessage()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceRequestValidationError{
+						field:  "Message",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceRequestValidationError{
+						field:  "Message",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetMessage()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceRequestValidationError{
+					field:  "Message",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *ServiceRequest_Attach:
+
+		if all {
+			switch v := interface{}(m.GetAttach()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceRequestValidationError{
+						field:  "Attach",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceRequestValidationError{
+						field:  "Attach",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetAttach()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceRequestValidationError{
+					field:  "Attach",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *ServiceRequest_Detach:
+
+		if all {
+			switch v := interface{}(m.GetDetach()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceRequestValidationError{
+						field:  "Detach",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceRequestValidationError{
+						field:  "Detach",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetDetach()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceRequestValidationError{
+					field:  "Detach",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ServiceRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceRequestMultiError is an error wrapping multiple validation errors
+// returned by ServiceRequest.ValidateAll() if the designated constraints
+// aren't met.
+type ServiceRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceRequestMultiError) AllErrors() []error { return m }
+
+// ServiceRequestValidationError is the validation error returned by
+// ServiceRequest.Validate if the designated constraints aren't met.
+type ServiceRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceRequestValidationError) ErrorName() string { return "ServiceRequestValidationError" }
+
+// Error satisfies the builtin error interface
+func (e ServiceRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceRequestValidationError{}
+
+// Validate checks the field values on ServicePendingTalksResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ServicePendingTalksResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServicePendingTalksResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServicePendingTalksResponseMultiError, or nil if none found.
+func (m *ServicePendingTalksResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServicePendingTalksResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetTalks() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServicePendingTalksResponseValidationError{
+						field:  fmt.Sprintf("Talks[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServicePendingTalksResponseValidationError{
+						field:  fmt.Sprintf("Talks[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServicePendingTalksResponseValidationError{
+					field:  fmt.Sprintf("Talks[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ServicePendingTalksResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServicePendingTalksResponseMultiError is an error wrapping multiple
+// validation errors returned by ServicePendingTalksResponse.ValidateAll() if
+// the designated constraints aren't met.
+type ServicePendingTalksResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServicePendingTalksResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServicePendingTalksResponseMultiError) AllErrors() []error { return m }
+
+// ServicePendingTalksResponseValidationError is the validation error returned
+// by ServicePendingTalksResponse.Validate if the designated constraints
+// aren't met.
+type ServicePendingTalksResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServicePendingTalksResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServicePendingTalksResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServicePendingTalksResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServicePendingTalksResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServicePendingTalksResponseValidationError) ErrorName() string {
+	return "ServicePendingTalksResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServicePendingTalksResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServicePendingTalksResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServicePendingTalksResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServicePendingTalksResponseValidationError{}
+
+// Validate checks the field values on ServiceTalkInfoAndMessages with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ServiceTalkInfoAndMessages) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceTalkInfoAndMessages with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServiceTalkInfoAndMessagesMultiError, or nil if none found.
+func (m *ServiceTalkInfoAndMessages) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceTalkInfoAndMessages) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetTalkInfo()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ServiceTalkInfoAndMessagesValidationError{
+					field:  "TalkInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ServiceTalkInfoAndMessagesValidationError{
+					field:  "TalkInfo",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetTalkInfo()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ServiceTalkInfoAndMessagesValidationError{
+				field:  "TalkInfo",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	for idx, item := range m.GetMessages() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceTalkInfoAndMessagesValidationError{
+						field:  fmt.Sprintf("Messages[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceTalkInfoAndMessagesValidationError{
+						field:  fmt.Sprintf("Messages[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceTalkInfoAndMessagesValidationError{
+					field:  fmt.Sprintf("Messages[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ServiceTalkInfoAndMessagesMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceTalkInfoAndMessagesMultiError is an error wrapping multiple
+// validation errors returned by ServiceTalkInfoAndMessages.ValidateAll() if
+// the designated constraints aren't met.
+type ServiceTalkInfoAndMessagesMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceTalkInfoAndMessagesMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceTalkInfoAndMessagesMultiError) AllErrors() []error { return m }
+
+// ServiceTalkInfoAndMessagesValidationError is the validation error returned
+// by ServiceTalkInfoAndMessages.Validate if the designated constraints aren't met.
+type ServiceTalkInfoAndMessagesValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceTalkInfoAndMessagesValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceTalkInfoAndMessagesValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceTalkInfoAndMessagesValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceTalkInfoAndMessagesValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceTalkInfoAndMessagesValidationError) ErrorName() string {
+	return "ServiceTalkInfoAndMessagesValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServiceTalkInfoAndMessagesValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceTalkInfoAndMessages.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceTalkInfoAndMessagesValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceTalkInfoAndMessagesValidationError{}
+
+// Validate checks the field values on ServiceAttachedTalksResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ServiceAttachedTalksResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceAttachedTalksResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServiceAttachedTalksResponseMultiError, or nil if none found.
+func (m *ServiceAttachedTalksResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceAttachedTalksResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetTalks() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceAttachedTalksResponseValidationError{
+						field:  fmt.Sprintf("Talks[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceAttachedTalksResponseValidationError{
+						field:  fmt.Sprintf("Talks[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceAttachedTalksResponseValidationError{
+					field:  fmt.Sprintf("Talks[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ServiceAttachedTalksResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceAttachedTalksResponseMultiError is an error wrapping multiple
+// validation errors returned by ServiceAttachedTalksResponse.ValidateAll() if
+// the designated constraints aren't met.
+type ServiceAttachedTalksResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceAttachedTalksResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceAttachedTalksResponseMultiError) AllErrors() []error { return m }
+
+// ServiceAttachedTalksResponseValidationError is the validation error returned
+// by ServiceAttachedTalksResponse.Validate if the designated constraints
+// aren't met.
+type ServiceAttachedTalksResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceAttachedTalksResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceAttachedTalksResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceAttachedTalksResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceAttachedTalksResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceAttachedTalksResponseValidationError) ErrorName() string {
+	return "ServiceAttachedTalksResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServiceAttachedTalksResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceAttachedTalksResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceAttachedTalksResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceAttachedTalksResponseValidationError{}
+
+// Validate checks the field values on ServiceAttachTalkResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ServiceAttachTalkResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceAttachTalkResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServiceAttachTalkResponseMultiError, or nil if none found.
+func (m *ServiceAttachTalkResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceAttachTalkResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetTalk()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ServiceAttachTalkResponseValidationError{
+					field:  "Talk",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ServiceAttachTalkResponseValidationError{
+					field:  "Talk",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetTalk()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ServiceAttachTalkResponseValidationError{
+				field:  "Talk",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for AttachedServiceId
+
+	if len(errors) > 0 {
+		return ServiceAttachTalkResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceAttachTalkResponseMultiError is an error wrapping multiple validation
+// errors returned by ServiceAttachTalkResponse.ValidateAll() if the
+// designated constraints aren't met.
+type ServiceAttachTalkResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceAttachTalkResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceAttachTalkResponseMultiError) AllErrors() []error { return m }
+
+// ServiceAttachTalkResponseValidationError is the validation error returned by
+// ServiceAttachTalkResponse.Validate if the designated constraints aren't met.
+type ServiceAttachTalkResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceAttachTalkResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceAttachTalkResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceAttachTalkResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceAttachTalkResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceAttachTalkResponseValidationError) ErrorName() string {
+	return "ServiceAttachTalkResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServiceAttachTalkResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceAttachTalkResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceAttachTalkResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceAttachTalkResponseValidationError{}
+
+// Validate checks the field values on ServiceDetachTalkResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ServiceDetachTalkResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceDetachTalkResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServiceDetachTalkResponseMultiError, or nil if none found.
+func (m *ServiceDetachTalkResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceDetachTalkResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TalkId
+
+	// no validation rules for DetachedServiceId
+
+	if len(errors) > 0 {
+		return ServiceDetachTalkResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceDetachTalkResponseMultiError is an error wrapping multiple validation
+// errors returned by ServiceDetachTalkResponse.ValidateAll() if the
+// designated constraints aren't met.
+type ServiceDetachTalkResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceDetachTalkResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceDetachTalkResponseMultiError) AllErrors() []error { return m }
+
+// ServiceDetachTalkResponseValidationError is the validation error returned by
+// ServiceDetachTalkResponse.Validate if the designated constraints aren't met.
+type ServiceDetachTalkResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceDetachTalkResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceDetachTalkResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceDetachTalkResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceDetachTalkResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceDetachTalkResponseValidationError) ErrorName() string {
+	return "ServiceDetachTalkResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServiceDetachTalkResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceDetachTalkResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceDetachTalkResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceDetachTalkResponseValidationError{}
+
+// Validate checks the field values on ServiceTalkReloadResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ServiceTalkReloadResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceTalkReloadResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServiceTalkReloadResponseMultiError, or nil if none found.
+func (m *ServiceTalkReloadResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceTalkReloadResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetTalk()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ServiceTalkReloadResponseValidationError{
+					field:  "Talk",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ServiceTalkReloadResponseValidationError{
+					field:  "Talk",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetTalk()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ServiceTalkReloadResponseValidationError{
+				field:  "Talk",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return ServiceTalkReloadResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceTalkReloadResponseMultiError is an error wrapping multiple validation
+// errors returned by ServiceTalkReloadResponse.ValidateAll() if the
+// designated constraints aren't met.
+type ServiceTalkReloadResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceTalkReloadResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceTalkReloadResponseMultiError) AllErrors() []error { return m }
+
+// ServiceTalkReloadResponseValidationError is the validation error returned by
+// ServiceTalkReloadResponse.Validate if the designated constraints aren't met.
+type ServiceTalkReloadResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceTalkReloadResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceTalkReloadResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceTalkReloadResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceTalkReloadResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceTalkReloadResponseValidationError) ErrorName() string {
+	return "ServiceTalkReloadResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServiceTalkReloadResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceTalkReloadResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceTalkReloadResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceTalkReloadResponseValidationError{}
+
+// Validate checks the field values on ServiceTalkMessageResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ServiceTalkMessageResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceTalkMessageResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServiceTalkMessageResponseMultiError, or nil if none found.
+func (m *ServiceTalkMessageResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceTalkMessageResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TalkId
+
+	if all {
+		switch v := interface{}(m.GetMessage()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ServiceTalkMessageResponseValidationError{
+					field:  "Message",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ServiceTalkMessageResponseValidationError{
+					field:  "Message",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetMessage()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ServiceTalkMessageResponseValidationError{
+				field:  "Message",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return ServiceTalkMessageResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceTalkMessageResponseMultiError is an error wrapping multiple
+// validation errors returned by ServiceTalkMessageResponse.ValidateAll() if
+// the designated constraints aren't met.
+type ServiceTalkMessageResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceTalkMessageResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceTalkMessageResponseMultiError) AllErrors() []error { return m }
+
+// ServiceTalkMessageResponseValidationError is the validation error returned
+// by ServiceTalkMessageResponse.Validate if the designated constraints aren't met.
+type ServiceTalkMessageResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceTalkMessageResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceTalkMessageResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceTalkMessageResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceTalkMessageResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceTalkMessageResponseValidationError) ErrorName() string {
+	return "ServiceTalkMessageResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServiceTalkMessageResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceTalkMessageResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceTalkMessageResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceTalkMessageResponseValidationError{}
+
+// Validate checks the field values on ServiceTalkNotifyResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ServiceTalkNotifyResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceTalkNotifyResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServiceTalkNotifyResponseMultiError, or nil if none found.
+func (m *ServiceTalkNotifyResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceTalkNotifyResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Msg
+
+	if len(errors) > 0 {
+		return ServiceTalkNotifyResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceTalkNotifyResponseMultiError is an error wrapping multiple validation
+// errors returned by ServiceTalkNotifyResponse.ValidateAll() if the
+// designated constraints aren't met.
+type ServiceTalkNotifyResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceTalkNotifyResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceTalkNotifyResponseMultiError) AllErrors() []error { return m }
+
+// ServiceTalkNotifyResponseValidationError is the validation error returned by
+// ServiceTalkNotifyResponse.Validate if the designated constraints aren't met.
+type ServiceTalkNotifyResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceTalkNotifyResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceTalkNotifyResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceTalkNotifyResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceTalkNotifyResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceTalkNotifyResponseValidationError) ErrorName() string {
+	return "ServiceTalkNotifyResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServiceTalkNotifyResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceTalkNotifyResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceTalkNotifyResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceTalkNotifyResponseValidationError{}
+
+// Validate checks the field values on ServiceMessageConfirmed with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ServiceMessageConfirmed) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceMessageConfirmed with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServiceMessageConfirmedMultiError, or nil if none found.
+func (m *ServiceMessageConfirmed) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceMessageConfirmed) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for SeqId
+
+	// no validation rules for At
+
+	if len(errors) > 0 {
+		return ServiceMessageConfirmedMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceMessageConfirmedMultiError is an error wrapping multiple validation
+// errors returned by ServiceMessageConfirmed.ValidateAll() if the designated
+// constraints aren't met.
+type ServiceMessageConfirmedMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceMessageConfirmedMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceMessageConfirmedMultiError) AllErrors() []error { return m }
+
+// ServiceMessageConfirmedValidationError is the validation error returned by
+// ServiceMessageConfirmed.Validate if the designated constraints aren't met.
+type ServiceMessageConfirmedValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceMessageConfirmedValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceMessageConfirmedValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceMessageConfirmedValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceMessageConfirmedValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceMessageConfirmedValidationError) ErrorName() string {
+	return "ServiceMessageConfirmedValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ServiceMessageConfirmedValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceMessageConfirmed.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceMessageConfirmedValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceMessageConfirmedValidationError{}
+
+// Validate checks the field values on ServiceTalkClose with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *ServiceTalkClose) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceTalkClose with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServiceTalkCloseMultiError, or nil if none found.
+func (m *ServiceTalkClose) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceTalkClose) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return ServiceTalkCloseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceTalkCloseMultiError is an error wrapping multiple validation errors
+// returned by ServiceTalkClose.ValidateAll() if the designated constraints
+// aren't met.
+type ServiceTalkCloseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceTalkCloseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceTalkCloseMultiError) AllErrors() []error { return m }
+
+// ServiceTalkCloseValidationError is the validation error returned by
+// ServiceTalkClose.Validate if the designated constraints aren't met.
+type ServiceTalkCloseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceTalkCloseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceTalkCloseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceTalkCloseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceTalkCloseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceTalkCloseValidationError) ErrorName() string { return "ServiceTalkCloseValidationError" }
+
+// Error satisfies the builtin error interface
+func (e ServiceTalkCloseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceTalkClose.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceTalkCloseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceTalkCloseValidationError{}
+
+// Validate checks the field values on ServiceResponse with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *ServiceResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ServiceResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// ServiceResponseMultiError, or nil if none found.
+func (m *ServiceResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ServiceResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	switch m.Response.(type) {
+
+	case *ServiceResponse_KickOut:
+
+		if all {
+			switch v := interface{}(m.GetKickOut()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "KickOut",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "KickOut",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetKickOut()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceResponseValidationError{
+					field:  "KickOut",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *ServiceResponse_PendingTalks:
+
+		if all {
+			switch v := interface{}(m.GetPendingTalks()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "PendingTalks",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "PendingTalks",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPendingTalks()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceResponseValidationError{
+					field:  "PendingTalks",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *ServiceResponse_Talks:
+
+		if all {
+			switch v := interface{}(m.GetTalks()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "Talks",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "Talks",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetTalks()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceResponseValidationError{
+					field:  "Talks",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *ServiceResponse_Attach:
+
+		if all {
+			switch v := interface{}(m.GetAttach()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "Attach",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "Attach",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetAttach()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceResponseValidationError{
+					field:  "Attach",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *ServiceResponse_Detach:
+
+		if all {
+			switch v := interface{}(m.GetDetach()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "Detach",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "Detach",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetDetach()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceResponseValidationError{
+					field:  "Detach",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *ServiceResponse_Reload:
+
+		if all {
+			switch v := interface{}(m.GetReload()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "Reload",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "Reload",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetReload()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceResponseValidationError{
+					field:  "Reload",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *ServiceResponse_Message:
+
+		if all {
+			switch v := interface{}(m.GetMessage()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "Message",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "Message",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetMessage()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceResponseValidationError{
+					field:  "Message",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *ServiceResponse_Notify:
+
+		if all {
+			switch v := interface{}(m.GetNotify()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "Notify",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "Notify",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetNotify()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceResponseValidationError{
+					field:  "Notify",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *ServiceResponse_MessageConfirmed:
+
+		if all {
+			switch v := interface{}(m.GetMessageConfirmed()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "MessageConfirmed",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "MessageConfirmed",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetMessageConfirmed()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceResponseValidationError{
+					field:  "MessageConfirmed",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *ServiceResponse_Close:
+
+		if all {
+			switch v := interface{}(m.GetClose()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "Close",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ServiceResponseValidationError{
+						field:  "Close",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetClose()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ServiceResponseValidationError{
+					field:  "Close",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return ServiceResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ServiceResponseMultiError is an error wrapping multiple validation errors
+// returned by ServiceResponse.ValidateAll() if the designated constraints
+// aren't met.
+type ServiceResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ServiceResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ServiceResponseMultiError) AllErrors() []error { return m }
+
+// ServiceResponseValidationError is the validation error returned by
+// ServiceResponse.Validate if the designated constraints aren't met.
+type ServiceResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ServiceResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ServiceResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ServiceResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ServiceResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ServiceResponseValidationError) ErrorName() string { return "ServiceResponseValidationError" }
+
+// Error satisfies the builtin error interface
+func (e ServiceResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sServiceResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ServiceResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ServiceResponseValidationError{}

@@ -191,6 +191,82 @@
                 </li>
               
                 <li>
+                  <a href="#.ServiceAttachRequest"><span class="badge">M</span>ServiceAttachRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceAttachTalkResponse"><span class="badge">M</span>ServiceAttachTalkResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceAttachedTalksResponse"><span class="badge">M</span>ServiceAttachedTalksResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceDetachRequest"><span class="badge">M</span>ServiceDetachRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceDetachTalkResponse"><span class="badge">M</span>ServiceDetachTalkResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceMessageConfirmed"><span class="badge">M</span>ServiceMessageConfirmed</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServicePendingTalksResponse"><span class="badge">M</span>ServicePendingTalksResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServicePostMessage"><span class="badge">M</span>ServicePostMessage</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceQueryAttachedTalksRequest"><span class="badge">M</span>ServiceQueryAttachedTalksRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceQueryPendingTalksRequest"><span class="badge">M</span>ServiceQueryPendingTalksRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceReloadTalkRequest"><span class="badge">M</span>ServiceReloadTalkRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceRequest"><span class="badge">M</span>ServiceRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceResponse"><span class="badge">M</span>ServiceResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceTalkClose"><span class="badge">M</span>ServiceTalkClose</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceTalkInfoAndMessages"><span class="badge">M</span>ServiceTalkInfoAndMessages</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceTalkMessageResponse"><span class="badge">M</span>ServiceTalkMessageResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceTalkNotifyResponse"><span class="badge">M</span>ServiceTalkNotifyResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceTalkReloadResponse"><span class="badge">M</span>ServiceTalkReloadResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#.TalkClose"><span class="badge">M</span>TalkClose</a>
+                </li>
+              
+                <li>
                   <a href="#.TalkCreateRequest"><span class="badge">M</span>TalkCreateRequest</a>
                 </li>
               
@@ -199,11 +275,19 @@
                 </li>
               
                 <li>
+                  <a href="#.TalkKickOutMessage"><span class="badge">M</span>TalkKickOutMessage</a>
+                </li>
+              
+                <li>
                   <a href="#.TalkMessage"><span class="badge">M</span>TalkMessage</a>
                 </li>
               
                 <li>
-                  <a href="#.TalkMessageReply"><span class="badge">M</span>TalkMessageReply</a>
+                  <a href="#.TalkMessageConfirmed"><span class="badge">M</span>TalkMessageConfirmed</a>
+                </li>
+              
+                <li>
+                  <a href="#.TalkMessageW"><span class="badge">M</span>TalkMessageW</a>
                 </li>
               
                 <li>
@@ -231,6 +315,10 @@
               
                 <li>
                   <a href="#.CustomerTalkService"><span class="badge">S</span>CustomerTalkService</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServiceTalkService"><span class="badge">S</span>ServiceTalkService</a>
                 </li>
               
             </ul>
@@ -300,6 +388,534 @@
           </table>
 
           
+
+        
+      
+        <h3 id=".ServiceAttachRequest">ServiceAttachRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>talk_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".ServiceAttachTalkResponse">ServiceAttachTalkResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>talk</td>
+                  <td><a href="#TalkInfo">TalkInfo</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>attached_service_id</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>会话附加到的客服ID，如果非0且值等于当前客户ID，代表附加到了本客服 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".ServiceAttachedTalksResponse">ServiceAttachedTalksResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>talks</td>
+                  <td><a href="#ServiceTalkInfoAndMessages">ServiceTalkInfoAndMessages</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".ServiceDetachRequest">ServiceDetachRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>talk_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".ServiceDetachTalkResponse">ServiceDetachTalkResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>talk_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>detached_service_id</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p>被剥夺会话的客服ID，如果非0且值等于当前客户ID，代表本客服被剥夺此会话 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".ServiceMessageConfirmed">ServiceMessageConfirmed</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>seq_id</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>at</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".ServicePendingTalksResponse">ServicePendingTalksResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>talks</td>
+                  <td><a href="#TalkInfo">TalkInfo</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".ServicePostMessage">ServicePostMessage</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>talk_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#TalkMessageW">TalkMessageW</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".ServiceQueryAttachedTalksRequest">ServiceQueryAttachedTalksRequest</h3>
+        <p></p>
+
+        
+
+        
+      
+        <h3 id=".ServiceQueryPendingTalksRequest">ServiceQueryPendingTalksRequest</h3>
+        <p></p>
+
+        
+
+        
+      
+        <h3 id=".ServiceReloadTalkRequest">ServiceReloadTalkRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>talk_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".ServiceRequest">ServiceRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>attached_talks</td>
+                  <td><a href="#ServiceQueryAttachedTalksRequest">ServiceQueryAttachedTalksRequest</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pending_talks</td>
+                  <td><a href="#ServiceQueryPendingTalksRequest">ServiceQueryPendingTalksRequest</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>reload</td>
+                  <td><a href="#ServiceReloadTalkRequest">ServiceReloadTalkRequest</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#ServicePostMessage">ServicePostMessage</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>attach</td>
+                  <td><a href="#ServiceAttachRequest">ServiceAttachRequest</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>detach</td>
+                  <td><a href="#ServiceDetachRequest">ServiceDetachRequest</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".ServiceResponse">ServiceResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>kick_out</td>
+                  <td><a href="#TalkKickOutMessage">TalkKickOutMessage</a></td>
+                  <td></td>
+                  <td><p>客服被踢出登录 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>pending_talks</td>
+                  <td><a href="#ServicePendingTalksResponse">ServicePendingTalksResponse</a></td>
+                  <td></td>
+                  <td><p>刷新未分配会话列表 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>talks</td>
+                  <td><a href="#ServiceAttachedTalksResponse">ServiceAttachedTalksResponse</a></td>
+                  <td></td>
+                  <td><p>刷新客服处理的所有会话 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>attach</td>
+                  <td><a href="#ServiceAttachTalkResponse">ServiceAttachTalkResponse</a></td>
+                  <td></td>
+                  <td><p>会话变为被分配状态 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>detach</td>
+                  <td><a href="#ServiceDetachTalkResponse">ServiceDetachTalkResponse</a></td>
+                  <td></td>
+                  <td><p>会话变为未分配状态 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>reload</td>
+                  <td><a href="#ServiceTalkReloadResponse">ServiceTalkReloadResponse</a></td>
+                  <td></td>
+                  <td><p>会话加载回应 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#ServiceTalkMessageResponse">ServiceTalkMessageResponse</a></td>
+                  <td></td>
+                  <td><p>会话中新增消息 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>notify</td>
+                  <td><a href="#ServiceTalkNotifyResponse">ServiceTalkNotifyResponse</a></td>
+                  <td></td>
+                  <td><p>notify </p></td>
+                </tr>
+              
+                <tr>
+                  <td>message_confirmed</td>
+                  <td><a href="#ServiceMessageConfirmed">ServiceMessageConfirmed</a></td>
+                  <td></td>
+                  <td><p>会话中新增消息回应 </p></td>
+                </tr>
+              
+                <tr>
+                  <td>close</td>
+                  <td><a href="#ServiceTalkClose">ServiceTalkClose</a></td>
+                  <td></td>
+                  <td><p>会话被关闭 </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".ServiceTalkClose">ServiceTalkClose</h3>
+        <p></p>
+
+        
+
+        
+      
+        <h3 id=".ServiceTalkInfoAndMessages">ServiceTalkInfoAndMessages</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>talk_info</td>
+                  <td><a href="#TalkInfo">TalkInfo</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>messages</td>
+                  <td><a href="#TalkMessage">TalkMessage</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".ServiceTalkMessageResponse">ServiceTalkMessageResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>talk_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#TalkMessage">TalkMessage</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".ServiceTalkNotifyResponse">ServiceTalkNotifyResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>msg</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".ServiceTalkReloadResponse">ServiceTalkReloadResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>talk</td>
+                  <td><a href="#ServiceTalkInfoAndMessages">ServiceTalkInfoAndMessages</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".TalkClose">TalkClose</h3>
+        <p></p>
+
+        
 
         
       
@@ -379,7 +995,7 @@
 
         
       
-        <h3 id=".TalkMessage">TalkMessage</h3>
+        <h3 id=".TalkKickOutMessage">TalkKickOutMessage</h3>
         <p></p>
 
         
@@ -390,11 +1006,35 @@
             <tbody>
               
                 <tr>
-                  <td>uuid</td>
+                  <td>code</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>message</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".TalkMessage">TalkMessage</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
               
                 <tr>
                   <td>at</td>
@@ -431,10 +1071,72 @@
 
         
       
-        <h3 id=".TalkMessageReply">TalkMessageReply</h3>
+        <h3 id=".TalkMessageConfirmed">TalkMessageConfirmed</h3>
         <p></p>
 
         
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>seq_id</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>at</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".TalkMessageW">TalkMessageW</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>seq_id</td>
+                  <td><a href="#uint64">uint64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>text</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>image</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
 
         
       
@@ -512,7 +1214,14 @@
               
                 <tr>
                   <td>message</td>
-                  <td><a href="#TalkMessage">TalkMessage</a></td>
+                  <td><a href="#TalkMessageW">TalkMessageW</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>close</td>
+                  <td><a href="#TalkClose">TalkClose</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -535,6 +1244,13 @@
             <tbody>
               
                 <tr>
+                  <td>kick_out</td>
+                  <td><a href="#TalkKickOutMessage">TalkKickOutMessage</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
                   <td>messages</td>
                   <td><a href="#TalkMessages">TalkMessages</a></td>
                   <td></td>
@@ -549,8 +1265,15 @@
                 </tr>
               
                 <tr>
-                  <td>reply</td>
-                  <td><a href="#TalkMessageReply">TalkMessageReply</a></td>
+                  <td>message_confirmed</td>
+                  <td><a href="#TalkMessageConfirmed">TalkMessageConfirmed</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>close</td>
+                  <td><a href="#TalkClose">TalkClose</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -616,6 +1339,25 @@
                 <td>Talk</td>
                 <td><a href="#TalkRequest">.TalkRequest</a> stream</td>
                 <td><a href="#TalkResponse">.TalkResponse</a> stream</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+        <h3 id=".ServiceTalkService">ServiceTalkService</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>Service</td>
+                <td><a href="#ServiceRequest">.ServiceRequest</a> stream</td>
+                <td><a href="#ServiceResponse">.ServiceResponse</a> stream</td>
                 <td><p></p></td>
               </tr>
             

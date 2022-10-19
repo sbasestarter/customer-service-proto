@@ -5,8 +5,25 @@ option java_multiple_files = true;
 option java_package = "com.patdz.customertalk";
 option java_outer_classname = "CustomerTalkProto";
 
+//
+//
+//
+
 message Empty {
 
+}
+
+message TalkKickOutMessage {
+  int32 code = 1;
+  string message = 2;
+}
+
+//
+//
+//
+
+message QueryTalksRequest {
+  repeated TalkStatus statuses = 1;
 }
 
 enum TalkStatus {
@@ -23,24 +40,8 @@ message TalkInfo {
   uint64 finished_at = 5;
 }
 
-message QueryTalksRequest {
-  repeated TalkStatus statuses = 1;
-}
-
 message QueryTalksResponse {
   repeated TalkInfo talks = 1;
-}
-
-
-message TalkMessage {
-  string uuid = 1;
-  uint64 at = 2;
-  bool customer_message = 3;
-
-  oneof Message {
-    string text = 20;
-    bytes image = 21;
-  }
 }
 
 message TalkCreateRequest {
@@ -51,11 +52,35 @@ message TalkOpenRequest {
   string talk_id = 1;
 }
 
+message TalkMessageW {
+  uint64 seq_id = 1;
+
+  oneof Message {
+    string text = 20;
+    bytes image = 21;
+  }
+}
+
+message TalkMessage {
+  uint64 at = 1;
+  bool customer_message = 2;
+
+  oneof Message {
+    string text = 20;
+    bytes image = 21;
+  }
+}
+
+message TalkClose {
+
+}
+
 message TalkRequest {
   oneof Talk {
     TalkCreateRequest create = 1;
     TalkOpenRequest open = 2;
-    TalkMessage message = 3;
+    TalkMessageW message = 3;
+    TalkClose close = 4;
   }
 }
 
@@ -63,15 +88,18 @@ message TalkMessages {
   repeated TalkMessage messages = 1;
 }
 
-message TalkMessageReply {
-
+message TalkMessageConfirmed {
+  uint64 seq_id = 1;
+  uint64 at = 2;
 }
 
 message TalkResponse {
   oneof Talk {
-    TalkMessages messages = 1;
-    TalkMessage message = 2;
-    TalkMessageReply reply = 3;
+    TalkKickOutMessage kick_out = 1;
+    TalkMessages messages = 2;
+    TalkMessage message = 3;
+    TalkMessageConfirmed message_confirmed = 4;
+    TalkClose close = 5;
   }
 }
 
@@ -79,4 +107,106 @@ service CustomerTalkService {
   rpc QueryTalks(QueryTalksRequest) returns (QueryTalksResponse) {}
 
   rpc Talk(stream TalkRequest) returns (stream TalkResponse) {}
+}
+
+//
+//
+//
+
+message ServiceQueryAttachedTalksRequest {
+}
+
+message ServiceQueryPendingTalksRequest {
+}
+
+message ServiceReloadTalkRequest {
+  string talk_id = 1;
+}
+
+message ServicePostMessage {
+  string talk_id = 1;
+  TalkMessageW message = 2;
+}
+
+message ServiceAttachRequest {
+  string talk_id = 1;
+}
+
+message ServiceDetachRequest {
+  string talk_id = 1;
+}
+
+message ServiceRequest {
+  oneof Request {
+    ServiceQueryAttachedTalksRequest attached_talks = 1;
+    ServiceQueryPendingTalksRequest pending_talks = 2;
+    ServiceReloadTalkRequest reload = 3;
+    ServicePostMessage message = 4;
+    ServiceAttachRequest attach = 5;
+    ServiceDetachRequest detach = 6;
+  }
+}
+
+message ServicePendingTalksResponse {
+  repeated TalkInfo talks = 2;
+}
+
+message ServiceTalkInfoAndMessages {
+  TalkInfo talk_info = 1;
+  repeated TalkMessage messages = 2;
+}
+
+message ServiceAttachedTalksResponse {
+  repeated ServiceTalkInfoAndMessages talks = 2;
+}
+
+message ServiceAttachTalkResponse {
+  TalkInfo talk = 1;
+  uint64 attached_service_id = 2; // 会话附加到的客服ID，如果非0且值等于当前客户ID，代表附加到了本客服
+}
+
+message ServiceDetachTalkResponse {
+  string talk_id = 1;
+  uint64 detached_service_id = 2; // 被剥夺会话的客服ID，如果非0且值等于当前客户ID，代表本客服被剥夺此会话
+}
+
+message ServiceTalkReloadResponse {
+  ServiceTalkInfoAndMessages talk = 1;
+}
+
+message ServiceTalkMessageResponse {
+  string talk_id = 1;
+  TalkMessage message = 2;
+}
+
+message ServiceTalkNotifyResponse {
+  string msg = 1;
+}
+
+message ServiceMessageConfirmed {
+  uint64 seq_id = 1;
+  uint64 at = 2;
+}
+
+message ServiceTalkClose {
+
+}
+
+message ServiceResponse {
+  oneof Response {
+    TalkKickOutMessage kick_out = 1; // 客服被踢出登录
+    ServicePendingTalksResponse pending_talks = 2; // 刷新未分配会话列表
+    ServiceAttachedTalksResponse talks = 3; // 刷新客服处理的所有会话
+    ServiceAttachTalkResponse attach = 4; // 会话变为被分配状态
+    ServiceDetachTalkResponse detach = 5; // 会话变为未分配状态
+    ServiceTalkReloadResponse reload = 6; // 会话加载回应
+    ServiceTalkMessageResponse message = 7; // 会话中新增消息
+    ServiceTalkNotifyResponse notify = 8; // notify
+    ServiceMessageConfirmed message_confirmed = 9; // 会话中新增消息回应
+    ServiceTalkClose close = 10; // 会话被关闭
+  }
+}
+
+service ServiceTalkService {
+  rpc Service(stream ServiceRequest) returns (stream ServiceResponse) {}
 }

@@ -172,3 +172,121 @@ var CustomerTalkService_ServiceDesc = grpc.ServiceDesc{
 	},
 	Metadata: "proto/customer_talk_service.proto",
 }
+
+// ServiceTalkServiceClient is the client API for ServiceTalkService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ServiceTalkServiceClient interface {
+	Service(ctx context.Context, opts ...grpc.CallOption) (ServiceTalkService_ServiceClient, error)
+}
+
+type serviceTalkServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewServiceTalkServiceClient(cc grpc.ClientConnInterface) ServiceTalkServiceClient {
+	return &serviceTalkServiceClient{cc}
+}
+
+func (c *serviceTalkServiceClient) Service(ctx context.Context, opts ...grpc.CallOption) (ServiceTalkService_ServiceClient, error) {
+	stream, err := c.cc.NewStream(ctx, &ServiceTalkService_ServiceDesc.Streams[0], "/ServiceTalkService/Service", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &serviceTalkServiceServiceClient{stream}
+	return x, nil
+}
+
+type ServiceTalkService_ServiceClient interface {
+	Send(*ServiceRequest) error
+	Recv() (*ServiceResponse, error)
+	grpc.ClientStream
+}
+
+type serviceTalkServiceServiceClient struct {
+	grpc.ClientStream
+}
+
+func (x *serviceTalkServiceServiceClient) Send(m *ServiceRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *serviceTalkServiceServiceClient) Recv() (*ServiceResponse, error) {
+	m := new(ServiceResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+// ServiceTalkServiceServer is the server API for ServiceTalkService service.
+// All implementations must embed UnimplementedServiceTalkServiceServer
+// for forward compatibility
+type ServiceTalkServiceServer interface {
+	Service(ServiceTalkService_ServiceServer) error
+	mustEmbedUnimplementedServiceTalkServiceServer()
+}
+
+// UnimplementedServiceTalkServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedServiceTalkServiceServer struct {
+}
+
+func (UnimplementedServiceTalkServiceServer) Service(ServiceTalkService_ServiceServer) error {
+	return status.Errorf(codes.Unimplemented, "method Service not implemented")
+}
+func (UnimplementedServiceTalkServiceServer) mustEmbedUnimplementedServiceTalkServiceServer() {}
+
+// UnsafeServiceTalkServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServiceTalkServiceServer will
+// result in compilation errors.
+type UnsafeServiceTalkServiceServer interface {
+	mustEmbedUnimplementedServiceTalkServiceServer()
+}
+
+func RegisterServiceTalkServiceServer(s grpc.ServiceRegistrar, srv ServiceTalkServiceServer) {
+	s.RegisterService(&ServiceTalkService_ServiceDesc, srv)
+}
+
+func _ServiceTalkService_Service_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(ServiceTalkServiceServer).Service(&serviceTalkServiceServiceServer{stream})
+}
+
+type ServiceTalkService_ServiceServer interface {
+	Send(*ServiceResponse) error
+	Recv() (*ServiceRequest, error)
+	grpc.ServerStream
+}
+
+type serviceTalkServiceServiceServer struct {
+	grpc.ServerStream
+}
+
+func (x *serviceTalkServiceServiceServer) Send(m *ServiceResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *serviceTalkServiceServiceServer) Recv() (*ServiceRequest, error) {
+	m := new(ServiceRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+// ServiceTalkService_ServiceDesc is the grpc.ServiceDesc for ServiceTalkService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ServiceTalkService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ServiceTalkService",
+	HandlerType: (*ServiceTalkServiceServer)(nil),
+	Methods:     []grpc.MethodDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "Service",
+			Handler:       _ServiceTalkService_Service_Handler,
+			ServerStreams: true,
+			ClientStreams: true,
+		},
+	},
+	Metadata: "proto/customer_talk_service.proto",
+}
