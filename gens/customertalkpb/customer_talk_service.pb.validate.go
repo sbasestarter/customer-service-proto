@@ -3376,7 +3376,34 @@ func (m *ServiceDetachTalkResponse) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for TalkId
+	if all {
+		switch v := interface{}(m.GetTalk()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ServiceDetachTalkResponseValidationError{
+					field:  "Talk",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ServiceDetachTalkResponseValidationError{
+					field:  "Talk",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetTalk()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ServiceDetachTalkResponseValidationError{
+				field:  "Talk",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
 	// no validation rules for DetachedServiceId
 

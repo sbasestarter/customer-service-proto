@@ -5487,7 +5487,7 @@ proto.ServiceDetachTalkResponse.prototype.toObject = function(opt_includeInstanc
  */
 proto.ServiceDetachTalkResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    talkId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    talk: (f = msg.getTalk()) && proto.TalkInfo.toObject(includeInstance, f),
     detachedServiceId: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
@@ -5526,8 +5526,9 @@ proto.ServiceDetachTalkResponse.deserializeBinaryFromReader = function(msg, read
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setTalkId(value);
+      var value = new proto.TalkInfo;
+      reader.readMessage(value,proto.TalkInfo.deserializeBinaryFromReader);
+      msg.setTalk(value);
       break;
     case 2:
       var value = /** @type {number} */ (reader.readUint64());
@@ -5562,11 +5563,12 @@ proto.ServiceDetachTalkResponse.prototype.serializeBinary = function() {
  */
 proto.ServiceDetachTalkResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getTalkId();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getTalk();
+  if (f != null) {
+    writer.writeMessage(
       1,
-      f
+      f,
+      proto.TalkInfo.serializeBinaryToWriter
     );
   }
   f = message.getDetachedServiceId();
@@ -5580,20 +5582,39 @@ proto.ServiceDetachTalkResponse.serializeBinaryToWriter = function(message, writ
 
 
 /**
- * optional string talk_id = 1;
- * @return {string}
+ * optional TalkInfo talk = 1;
+ * @return {?proto.TalkInfo}
  */
-proto.ServiceDetachTalkResponse.prototype.getTalkId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.ServiceDetachTalkResponse.prototype.getTalk = function() {
+  return /** @type{?proto.TalkInfo} */ (
+    jspb.Message.getWrapperField(this, proto.TalkInfo, 1));
 };
 
 
 /**
- * @param {string} value
+ * @param {?proto.TalkInfo|undefined} value
+ * @return {!proto.ServiceDetachTalkResponse} returns this
+*/
+proto.ServiceDetachTalkResponse.prototype.setTalk = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
  * @return {!proto.ServiceDetachTalkResponse} returns this
  */
-proto.ServiceDetachTalkResponse.prototype.setTalkId = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
+proto.ServiceDetachTalkResponse.prototype.clearTalk = function() {
+  return this.setTalk(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.ServiceDetachTalkResponse.prototype.hasTalk = function() {
+  return jspb.Message.getField(this, 1) != null;
 };
 
 

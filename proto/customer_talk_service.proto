@@ -166,7 +166,7 @@ message ServiceAttachTalkResponse {
 }
 
 message ServiceDetachTalkResponse {
-  string talk_id = 1;
+  TalkInfo talk = 1;
   uint64 detached_service_id = 2; // 被剥夺会话的客服ID，如果非0且值等于当前客户ID，代表本客服被剥夺此会话
 }
 

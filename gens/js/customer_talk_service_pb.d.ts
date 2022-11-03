@@ -696,8 +696,10 @@ export namespace ServiceAttachTalkResponse {
 }
 
 export class ServiceDetachTalkResponse extends jspb.Message {
-  getTalkId(): string;
-  setTalkId(value: string): void;
+  hasTalk(): boolean;
+  clearTalk(): void;
+  getTalk(): TalkInfo | undefined;
+  setTalk(value?: TalkInfo): void;
 
   getDetachedServiceId(): number;
   setDetachedServiceId(value: number): void;
@@ -714,7 +716,7 @@ export class ServiceDetachTalkResponse extends jspb.Message {
 
 export namespace ServiceDetachTalkResponse {
   export type AsObject = {
-    talkId: string,
+    talk?: TalkInfo.AsObject,
     detachedServiceId: number,
   }
 }
