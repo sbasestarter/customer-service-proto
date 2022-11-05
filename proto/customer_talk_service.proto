@@ -64,6 +64,7 @@ message TalkMessageW {
 message TalkMessage {
   uint64 at = 1;
   bool customer_message = 2;
+  string user = 3;
 
   oneof Message {
     string text = 20;

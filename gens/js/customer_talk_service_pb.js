@@ -2151,6 +2151,7 @@ proto.TalkMessage.toObject = function(includeInstance, msg) {
   var f, obj = {
     at: jspb.Message.getFieldWithDefault(msg, 1, 0),
     customerMessage: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+    user: jspb.Message.getFieldWithDefault(msg, 3, ""),
     text: jspb.Message.getFieldWithDefault(msg, 20, ""),
     image: msg.getImage_asB64()
   };
@@ -2196,6 +2197,10 @@ proto.TalkMessage.deserializeBinaryFromReader = function(msg, reader) {
     case 2:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setCustomerMessage(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUser(value);
       break;
     case 20:
       var value = /** @type {string} */ (reader.readString());
@@ -2245,6 +2250,13 @@ proto.TalkMessage.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       2,
+      f
+    );
+  }
+  f = message.getUser();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
       f
     );
   }
@@ -2298,6 +2310,24 @@ proto.TalkMessage.prototype.getCustomerMessage = function() {
  */
 proto.TalkMessage.prototype.setCustomerMessage = function(value) {
   return jspb.Message.setProto3BooleanField(this, 2, value);
+};
+
+
+/**
+ * optional string user = 3;
+ * @return {string}
+ */
+proto.TalkMessage.prototype.getUser = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.TalkMessage} returns this
+ */
+proto.TalkMessage.prototype.setUser = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 

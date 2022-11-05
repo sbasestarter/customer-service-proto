@@ -929,6 +929,8 @@ func (m *TalkMessage) validate(all bool) error {
 
 	// no validation rules for CustomerMessage
 
+	// no validation rules for User
+
 	switch m.Message.(type) {
 
 	case *TalkMessage_Text:

@@ -211,6 +211,9 @@ export class TalkMessage extends jspb.Message {
   getCustomerMessage(): boolean;
   setCustomerMessage(value: boolean): void;
 
+  getUser(): string;
+  setUser(value: string): void;
+
   hasText(): boolean;
   clearText(): void;
   getText(): string;
@@ -238,6 +241,7 @@ export namespace TalkMessage {
   export type AsObject = {
     at: number,
     customerMessage: boolean,
+    user: string,
     text: string,
     image: Uint8Array | string,
   }
