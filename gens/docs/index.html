@@ -179,6 +179,22 @@
             <ul>
               
                 <li>
+                  <a href="#.CheckTokenRequest"><span class="badge">M</span>CheckTokenRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#.CheckTokenResponse"><span class="badge">M</span>CheckTokenResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#.CreateTokenRequest"><span class="badge">M</span>CreateTokenRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#.CreateTokenResponse"><span class="badge">M</span>CreateTokenResponse</a>
+                </li>
+              
+                <li>
                   <a href="#.Empty"><span class="badge">M</span>Empty</a>
                 </li>
               
@@ -335,6 +351,99 @@
       </div>
       <p></p>
 
+      
+        <h3 id=".CheckTokenRequest">CheckTokenRequest</h3>
+        <p></p>
+
+        
+
+        
+      
+        <h3 id=".CheckTokenResponse">CheckTokenResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>valid</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".CreateTokenRequest">CreateTokenRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".CreateTokenResponse">CreateTokenResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
       
         <h3 id=".Empty">Empty</h3>
         <p></p>
@@ -1334,6 +1443,20 @@
             <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
           </thead>
           <tbody>
+            
+              <tr>
+                <td>CheckToken</td>
+                <td><a href="#CheckTokenRequest">.CheckTokenRequest</a></td>
+                <td><a href="#CheckTokenResponse">.CheckTokenResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateToken</td>
+                <td><a href="#CreateTokenRequest">.CreateTokenRequest</a></td>
+                <td><a href="#CreateTokenResponse">.CreateTokenResponse</a></td>
+                <td><p></p></td>
+              </tr>
             
               <tr>
                 <td>QueryTalks</td>

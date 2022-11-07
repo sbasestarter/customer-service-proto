@@ -43,6 +43,90 @@ export namespace TalkKickOutMessage {
   }
 }
 
+export class CheckTokenRequest extends jspb.Message {
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CheckTokenRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: CheckTokenRequest): CheckTokenRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CheckTokenRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CheckTokenRequest;
+  static deserializeBinaryFromReader(message: CheckTokenRequest, reader: jspb.BinaryReader): CheckTokenRequest;
+}
+
+export namespace CheckTokenRequest {
+  export type AsObject = {
+  }
+}
+
+export class CheckTokenResponse extends jspb.Message {
+  getValid(): boolean;
+  setValid(value: boolean): void;
+
+  getUserName(): string;
+  setUserName(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CheckTokenResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: CheckTokenResponse): CheckTokenResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CheckTokenResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CheckTokenResponse;
+  static deserializeBinaryFromReader(message: CheckTokenResponse, reader: jspb.BinaryReader): CheckTokenResponse;
+}
+
+export namespace CheckTokenResponse {
+  export type AsObject = {
+    valid: boolean,
+    userName: string,
+  }
+}
+
+export class CreateTokenRequest extends jspb.Message {
+  getUserName(): string;
+  setUserName(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CreateTokenRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: CreateTokenRequest): CreateTokenRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CreateTokenRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CreateTokenRequest;
+  static deserializeBinaryFromReader(message: CreateTokenRequest, reader: jspb.BinaryReader): CreateTokenRequest;
+}
+
+export namespace CreateTokenRequest {
+  export type AsObject = {
+    userName: string,
+  }
+}
+
+export class CreateTokenResponse extends jspb.Message {
+  getToken(): string;
+  setToken(value: string): void;
+
+  getUserName(): string;
+  setUserName(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CreateTokenResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: CreateTokenResponse): CreateTokenResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CreateTokenResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CreateTokenResponse;
+  static deserializeBinaryFromReader(message: CreateTokenResponse, reader: jspb.BinaryReader): CreateTokenResponse;
+}
+
+export namespace CreateTokenResponse {
+  export type AsObject = {
+    token: string,
+    userName: string,
+  }
+}
+
 export class QueryTalksRequest extends jspb.Message {
   clearStatusesList(): void;
   getStatusesList(): Array<TalkStatusMap[keyof TalkStatusMap]>;
