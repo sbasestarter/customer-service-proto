@@ -66,6 +66,9 @@ export class CheckTokenResponse extends jspb.Message {
   getUserName(): string;
   setUserName(value: string): void;
 
+  getNewToken(): string;
+  setNewToken(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CheckTokenResponse.AsObject;
   static toObject(includeInstance: boolean, msg: CheckTokenResponse): CheckTokenResponse.AsObject;
@@ -80,6 +83,7 @@ export namespace CheckTokenResponse {
   export type AsObject = {
     valid: boolean,
     userName: string,
+    newToken: string,
   }
 }
 

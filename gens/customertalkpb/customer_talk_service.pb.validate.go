@@ -367,6 +367,8 @@ func (m *CheckTokenResponse) validate(all bool) error {
 
 	// no validation rules for UserName
 
+	// no validation rules for NewToken
+
 	if len(errors) > 0 {
 		return CheckTokenResponseMultiError(errors)
 	}

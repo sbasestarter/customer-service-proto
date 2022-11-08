@@ -1209,7 +1209,8 @@ proto.CheckTokenResponse.prototype.toObject = function(opt_includeInstance) {
 proto.CheckTokenResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     valid: jspb.Message.getBooleanFieldWithDefault(msg, 1, false),
-    userName: jspb.Message.getFieldWithDefault(msg, 2, "")
+    userName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    newToken: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -1254,6 +1255,10 @@ proto.CheckTokenResponse.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setUserName(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setNewToken(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -1297,6 +1302,13 @@ proto.CheckTokenResponse.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getNewToken();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -1333,6 +1345,24 @@ proto.CheckTokenResponse.prototype.getUserName = function() {
  */
 proto.CheckTokenResponse.prototype.setUserName = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string new_token = 3;
+ * @return {string}
+ */
+proto.CheckTokenResponse.prototype.getNewToken = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.CheckTokenResponse} returns this
+ */
+proto.CheckTokenResponse.prototype.setNewToken = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 

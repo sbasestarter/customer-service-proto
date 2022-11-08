@@ -29,6 +29,7 @@ message CheckTokenRequest {
 message CheckTokenResponse {
   bool valid = 1;
   string user_name = 2;
+  string new_token = 3;
 }
 
 message CreateTokenRequest {
