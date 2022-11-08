@@ -577,6 +577,8 @@ func (m *CreateTokenResponse) validate(all bool) error {
 
 	// no validation rules for UserName
 
+	// no validation rules for Expires
+
 	if len(errors) > 0 {
 		return CreateTokenResponseMultiError(errors)
 	}

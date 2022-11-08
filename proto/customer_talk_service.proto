@@ -38,6 +38,7 @@ message CreateTokenRequest {
 message CreateTokenResponse {
   string token = 1;
   string user_name = 2;
+  int64 expires = 3;
 }
 
 message QueryTalksRequest {

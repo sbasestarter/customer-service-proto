@@ -1499,7 +1499,8 @@ proto.CreateTokenResponse.prototype.toObject = function(opt_includeInstance) {
 proto.CreateTokenResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     token: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    userName: jspb.Message.getFieldWithDefault(msg, 2, "")
+    userName: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    expires: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -1544,6 +1545,10 @@ proto.CreateTokenResponse.deserializeBinaryFromReader = function(msg, reader) {
       var value = /** @type {string} */ (reader.readString());
       msg.setUserName(value);
       break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt64());
+      msg.setExpires(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -1587,6 +1592,13 @@ proto.CreateTokenResponse.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getExpires();
+  if (f !== 0) {
+    writer.writeInt64(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -1623,6 +1635,24 @@ proto.CreateTokenResponse.prototype.getUserName = function() {
  */
 proto.CreateTokenResponse.prototype.setUserName = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional int64 expires = 3;
+ * @return {number}
+ */
+proto.CreateTokenResponse.prototype.getExpires = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.CreateTokenResponse} returns this
+ */
+proto.CreateTokenResponse.prototype.setExpires = function(value) {
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 

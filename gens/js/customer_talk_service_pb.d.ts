@@ -110,6 +110,9 @@ export class CreateTokenResponse extends jspb.Message {
   getUserName(): string;
   setUserName(value: string): void;
 
+  getExpires(): number;
+  setExpires(value: number): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CreateTokenResponse.AsObject;
   static toObject(includeInstance: boolean, msg: CreateTokenResponse): CreateTokenResponse.AsObject;
@@ -124,6 +127,7 @@ export namespace CreateTokenResponse {
   export type AsObject = {
     token: string,
     userName: string,
+    expires: number,
   }
 }
 
