@@ -411,6 +411,9 @@ export namespace TalkRequest {
 }
 
 export class TalkMessages extends jspb.Message {
+  getTalkId(): string;
+  setTalkId(value: string): void;
+
   clearMessagesList(): void;
   getMessagesList(): Array<TalkMessage>;
   setMessagesList(value: Array<TalkMessage>): void;
@@ -428,6 +431,7 @@ export class TalkMessages extends jspb.Message {
 
 export namespace TalkMessages {
   export type AsObject = {
+    talkId: string,
     messagesList: Array<TalkMessage.AsObject>,
   }
 }

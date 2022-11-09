@@ -106,7 +106,8 @@ message TalkRequest {
 }
 
 message TalkMessages {
-  repeated TalkMessage messages = 1;
+  string talk_id = 1;
+  repeated TalkMessage messages = 2;
 }
 
 message TalkMessageConfirmed {

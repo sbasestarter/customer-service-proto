@@ -1788,6 +1788,8 @@ func (m *TalkMessages) validate(all bool) error {
 
 	var errors []error
 
+	// no validation rules for TalkId
+
 	for idx, item := range m.GetMessages() {
 		_, _ = idx, item
 

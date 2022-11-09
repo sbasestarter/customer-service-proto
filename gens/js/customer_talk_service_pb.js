@@ -3565,7 +3565,7 @@ proto.TalkRequest.prototype.hasClose = function() {
  * @private {!Array<number>}
  * @const
  */
-proto.TalkMessages.repeatedFields_ = [1];
+proto.TalkMessages.repeatedFields_ = [2];
 
 
 
@@ -3598,6 +3598,7 @@ proto.TalkMessages.prototype.toObject = function(opt_includeInstance) {
  */
 proto.TalkMessages.toObject = function(includeInstance, msg) {
   var f, obj = {
+    talkId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     messagesList: jspb.Message.toObjectList(msg.getMessagesList(),
     proto.TalkMessage.toObject, includeInstance)
   };
@@ -3637,6 +3638,10 @@ proto.TalkMessages.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTalkId(value);
+      break;
+    case 2:
       var value = new proto.TalkMessage;
       reader.readMessage(value,proto.TalkMessage.deserializeBinaryFromReader);
       msg.addMessages(value);
@@ -3670,10 +3675,17 @@ proto.TalkMessages.prototype.serializeBinary = function() {
  */
 proto.TalkMessages.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getTalkId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
   f = message.getMessagesList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      1,
+      2,
       f,
       proto.TalkMessage.serializeBinaryToWriter
     );
@@ -3682,12 +3694,30 @@ proto.TalkMessages.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * repeated TalkMessage messages = 1;
+ * optional string talk_id = 1;
+ * @return {string}
+ */
+proto.TalkMessages.prototype.getTalkId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.TalkMessages} returns this
+ */
+proto.TalkMessages.prototype.setTalkId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * repeated TalkMessage messages = 2;
  * @return {!Array<!proto.TalkMessage>}
  */
 proto.TalkMessages.prototype.getMessagesList = function() {
   return /** @type{!Array<!proto.TalkMessage>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.TalkMessage, 1));
+    jspb.Message.getRepeatedWrapperField(this, proto.TalkMessage, 2));
 };
 
 
@@ -3696,7 +3726,7 @@ proto.TalkMessages.prototype.getMessagesList = function() {
  * @return {!proto.TalkMessages} returns this
 */
 proto.TalkMessages.prototype.setMessagesList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 1, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -3706,7 +3736,7 @@ proto.TalkMessages.prototype.setMessagesList = function(value) {
  * @return {!proto.TalkMessage}
  */
 proto.TalkMessages.prototype.addMessages = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.TalkMessage, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 2, opt_value, proto.TalkMessage, opt_index);
 };
 
 
