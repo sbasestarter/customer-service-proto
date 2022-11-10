@@ -22,8 +22,6 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CustomerTalkServiceClient interface {
-	CheckToken(ctx context.Context, in *CheckTokenRequest, opts ...grpc.CallOption) (*CheckTokenResponse, error)
-	CreateToken(ctx context.Context, in *CreateTokenRequest, opts ...grpc.CallOption) (*CreateTokenResponse, error)
 	QueryTalks(ctx context.Context, in *QueryTalksRequest, opts ...grpc.CallOption) (*QueryTalksResponse, error)
 	Talk(ctx context.Context, opts ...grpc.CallOption) (CustomerTalkService_TalkClient, error)
 }
@@ -34,24 +32,6 @@ type customerTalkServiceClient struct {
 
 func NewCustomerTalkServiceClient(cc grpc.ClientConnInterface) CustomerTalkServiceClient {
 	return &customerTalkServiceClient{cc}
-}
-
-func (c *customerTalkServiceClient) CheckToken(ctx context.Context, in *CheckTokenRequest, opts ...grpc.CallOption) (*CheckTokenResponse, error) {
-	out := new(CheckTokenResponse)
-	err := c.cc.Invoke(ctx, "/CustomerTalkService/CheckToken", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *customerTalkServiceClient) CreateToken(ctx context.Context, in *CreateTokenRequest, opts ...grpc.CallOption) (*CreateTokenResponse, error) {
-	out := new(CreateTokenResponse)
-	err := c.cc.Invoke(ctx, "/CustomerTalkService/CreateToken", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
 }
 
 func (c *customerTalkServiceClient) QueryTalks(ctx context.Context, in *QueryTalksRequest, opts ...grpc.CallOption) (*QueryTalksResponse, error) {
@@ -98,8 +78,6 @@ func (x *customerTalkServiceTalkClient) Recv() (*TalkResponse, error) {
 // All implementations must embed UnimplementedCustomerTalkServiceServer
 // for forward compatibility
 type CustomerTalkServiceServer interface {
-	CheckToken(context.Context, *CheckTokenRequest) (*CheckTokenResponse, error)
-	CreateToken(context.Context, *CreateTokenRequest) (*CreateTokenResponse, error)
 	QueryTalks(context.Context, *QueryTalksRequest) (*QueryTalksResponse, error)
 	Talk(CustomerTalkService_TalkServer) error
 	mustEmbedUnimplementedCustomerTalkServiceServer()
@@ -109,12 +87,6 @@ type CustomerTalkServiceServer interface {
 type UnimplementedCustomerTalkServiceServer struct {
 }
 
-func (UnimplementedCustomerTalkServiceServer) CheckToken(context.Context, *CheckTokenRequest) (*CheckTokenResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CheckToken not implemented")
-}
-func (UnimplementedCustomerTalkServiceServer) CreateToken(context.Context, *CreateTokenRequest) (*CreateTokenResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateToken not implemented")
-}
 func (UnimplementedCustomerTalkServiceServer) QueryTalks(context.Context, *QueryTalksRequest) (*QueryTalksResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method QueryTalks not implemented")
 }
@@ -132,42 +104,6 @@ type UnsafeCustomerTalkServiceServer interface {
 
 func RegisterCustomerTalkServiceServer(s grpc.ServiceRegistrar, srv CustomerTalkServiceServer) {
 	s.RegisterService(&CustomerTalkService_ServiceDesc, srv)
-}
-
-func _CustomerTalkService_CheckToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckTokenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomerTalkServiceServer).CheckToken(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/CustomerTalkService/CheckToken",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomerTalkServiceServer).CheckToken(ctx, req.(*CheckTokenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CustomerTalkService_CreateToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateTokenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CustomerTalkServiceServer).CreateToken(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/CustomerTalkService/CreateToken",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CustomerTalkServiceServer).CreateToken(ctx, req.(*CreateTokenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
 }
 
 func _CustomerTalkService_QueryTalks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -221,14 +157,6 @@ var CustomerTalkService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "CustomerTalkService",
 	HandlerType: (*CustomerTalkServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "CheckToken",
-			Handler:    _CustomerTalkService_CheckToken_Handler,
-		},
-		{
-			MethodName: "CreateToken",
-			Handler:    _CustomerTalkService_CreateToken_Handler,
-		},
 		{
 			MethodName: "QueryTalks",
 			Handler:    _CustomerTalkService_QueryTalks_Handler,
@@ -360,5 +288,249 @@ var ServiceTalkService_ServiceDesc = grpc.ServiceDesc{
 			ClientStreams: true,
 		},
 	},
+	Metadata: "proto/customer_talk_service.proto",
+}
+
+// CustomerUserServicerClient is the client API for CustomerUserServicer service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type CustomerUserServicerClient interface {
+	CheckToken(ctx context.Context, in *CheckTokenRequest, opts ...grpc.CallOption) (*CheckTokenResponse, error)
+	CreateToken(ctx context.Context, in *CreateTokenRequest, opts ...grpc.CallOption) (*CreateTokenResponse, error)
+}
+
+type customerUserServicerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewCustomerUserServicerClient(cc grpc.ClientConnInterface) CustomerUserServicerClient {
+	return &customerUserServicerClient{cc}
+}
+
+func (c *customerUserServicerClient) CheckToken(ctx context.Context, in *CheckTokenRequest, opts ...grpc.CallOption) (*CheckTokenResponse, error) {
+	out := new(CheckTokenResponse)
+	err := c.cc.Invoke(ctx, "/CustomerUserServicer/CheckToken", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *customerUserServicerClient) CreateToken(ctx context.Context, in *CreateTokenRequest, opts ...grpc.CallOption) (*CreateTokenResponse, error) {
+	out := new(CreateTokenResponse)
+	err := c.cc.Invoke(ctx, "/CustomerUserServicer/CreateToken", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// CustomerUserServicerServer is the server API for CustomerUserServicer service.
+// All implementations must embed UnimplementedCustomerUserServicerServer
+// for forward compatibility
+type CustomerUserServicerServer interface {
+	CheckToken(context.Context, *CheckTokenRequest) (*CheckTokenResponse, error)
+	CreateToken(context.Context, *CreateTokenRequest) (*CreateTokenResponse, error)
+	mustEmbedUnimplementedCustomerUserServicerServer()
+}
+
+// UnimplementedCustomerUserServicerServer must be embedded to have forward compatible implementations.
+type UnimplementedCustomerUserServicerServer struct {
+}
+
+func (UnimplementedCustomerUserServicerServer) CheckToken(context.Context, *CheckTokenRequest) (*CheckTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckToken not implemented")
+}
+func (UnimplementedCustomerUserServicerServer) CreateToken(context.Context, *CreateTokenRequest) (*CreateTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateToken not implemented")
+}
+func (UnimplementedCustomerUserServicerServer) mustEmbedUnimplementedCustomerUserServicerServer() {}
+
+// UnsafeCustomerUserServicerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to CustomerUserServicerServer will
+// result in compilation errors.
+type UnsafeCustomerUserServicerServer interface {
+	mustEmbedUnimplementedCustomerUserServicerServer()
+}
+
+func RegisterCustomerUserServicerServer(s grpc.ServiceRegistrar, srv CustomerUserServicerServer) {
+	s.RegisterService(&CustomerUserServicer_ServiceDesc, srv)
+}
+
+func _CustomerUserServicer_CheckToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomerUserServicerServer).CheckToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CustomerUserServicer/CheckToken",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomerUserServicerServer).CheckToken(ctx, req.(*CheckTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CustomerUserServicer_CreateToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CustomerUserServicerServer).CreateToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CustomerUserServicer/CreateToken",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CustomerUserServicerServer).CreateToken(ctx, req.(*CreateTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// CustomerUserServicer_ServiceDesc is the grpc.ServiceDesc for CustomerUserServicer service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var CustomerUserServicer_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "CustomerUserServicer",
+	HandlerType: (*CustomerUserServicerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CheckToken",
+			Handler:    _CustomerUserServicer_CheckToken_Handler,
+		},
+		{
+			MethodName: "CreateToken",
+			Handler:    _CustomerUserServicer_CreateToken_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/customer_talk_service.proto",
+}
+
+// ServicerUserServicerClient is the client API for ServicerUserServicer service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type ServicerUserServicerClient interface {
+	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
+	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
+}
+
+type servicerUserServicerClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewServicerUserServicerClient(cc grpc.ClientConnInterface) ServicerUserServicerClient {
+	return &servicerUserServicerClient{cc}
+}
+
+func (c *servicerUserServicerClient) Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error) {
+	out := new(RegisterResponse)
+	err := c.cc.Invoke(ctx, "/ServicerUserServicer/Register", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *servicerUserServicerClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error) {
+	out := new(LoginResponse)
+	err := c.cc.Invoke(ctx, "/ServicerUserServicer/Login", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ServicerUserServicerServer is the server API for ServicerUserServicer service.
+// All implementations must embed UnimplementedServicerUserServicerServer
+// for forward compatibility
+type ServicerUserServicerServer interface {
+	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
+	Login(context.Context, *LoginRequest) (*LoginResponse, error)
+	mustEmbedUnimplementedServicerUserServicerServer()
+}
+
+// UnimplementedServicerUserServicerServer must be embedded to have forward compatible implementations.
+type UnimplementedServicerUserServicerServer struct {
+}
+
+func (UnimplementedServicerUserServicerServer) Register(context.Context, *RegisterRequest) (*RegisterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Register not implemented")
+}
+func (UnimplementedServicerUserServicerServer) Login(context.Context, *LoginRequest) (*LoginResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
+}
+func (UnimplementedServicerUserServicerServer) mustEmbedUnimplementedServicerUserServicerServer() {}
+
+// UnsafeServicerUserServicerServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServicerUserServicerServer will
+// result in compilation errors.
+type UnsafeServicerUserServicerServer interface {
+	mustEmbedUnimplementedServicerUserServicerServer()
+}
+
+func RegisterServicerUserServicerServer(s grpc.ServiceRegistrar, srv ServicerUserServicerServer) {
+	s.RegisterService(&ServicerUserServicer_ServiceDesc, srv)
+}
+
+func _ServicerUserServicer_Register_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServicerUserServicerServer).Register(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ServicerUserServicer/Register",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServicerUserServicerServer).Register(ctx, req.(*RegisterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ServicerUserServicer_Login_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServicerUserServicerServer).Login(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ServicerUserServicer/Login",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServicerUserServicerServer).Login(ctx, req.(*LoginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// ServicerUserServicer_ServiceDesc is the grpc.ServiceDesc for ServicerUserServicer service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var ServicerUserServicer_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ServicerUserServicer",
+	HandlerType: (*ServicerUserServicerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Register",
+			Handler:    _ServicerUserServicer_Register_Handler,
+		},
+		{
+			MethodName: "Login",
+			Handler:    _ServicerUserServicer_Login_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
 	Metadata: "proto/customer_talk_service.proto",
 }

@@ -10,24 +10,6 @@ var CustomerTalkService = (function () {
   return CustomerTalkService;
 }());
 
-CustomerTalkService.CheckToken = {
-  methodName: "CheckToken",
-  service: CustomerTalkService,
-  requestStream: false,
-  responseStream: false,
-  requestType: proto_customer_talk_service_pb.CheckTokenRequest,
-  responseType: proto_customer_talk_service_pb.CheckTokenResponse
-};
-
-CustomerTalkService.CreateToken = {
-  methodName: "CreateToken",
-  service: CustomerTalkService,
-  requestStream: false,
-  responseStream: false,
-  requestType: proto_customer_talk_service_pb.CreateTokenRequest,
-  responseType: proto_customer_talk_service_pb.CreateTokenResponse
-};
-
 CustomerTalkService.QueryTalks = {
   methodName: "QueryTalks",
   service: CustomerTalkService,
@@ -52,68 +34,6 @@ function CustomerTalkServiceClient(serviceHost, options) {
   this.serviceHost = serviceHost;
   this.options = options || {};
 }
-
-CustomerTalkServiceClient.prototype.checkToken = function checkToken(requestMessage, metadata, callback) {
-  if (arguments.length === 2) {
-    callback = arguments[1];
-  }
-  var client = grpc.unary(CustomerTalkService.CheckToken, {
-    request: requestMessage,
-    host: this.serviceHost,
-    metadata: metadata,
-    transport: this.options.transport,
-    debug: this.options.debug,
-    onEnd: function (response) {
-      if (callback) {
-        if (response.status !== grpc.Code.OK) {
-          var err = new Error(response.statusMessage);
-          err.code = response.status;
-          err.metadata = response.trailers;
-          callback(err, null);
-        } else {
-          callback(null, response.message);
-        }
-      }
-    }
-  });
-  return {
-    cancel: function () {
-      callback = null;
-      client.close();
-    }
-  };
-};
-
-CustomerTalkServiceClient.prototype.createToken = function createToken(requestMessage, metadata, callback) {
-  if (arguments.length === 2) {
-    callback = arguments[1];
-  }
-  var client = grpc.unary(CustomerTalkService.CreateToken, {
-    request: requestMessage,
-    host: this.serviceHost,
-    metadata: metadata,
-    transport: this.options.transport,
-    debug: this.options.debug,
-    onEnd: function (response) {
-      if (callback) {
-        if (response.status !== grpc.Code.OK) {
-          var err = new Error(response.statusMessage);
-          err.code = response.status;
-          err.metadata = response.trailers;
-          callback(err, null);
-        } else {
-          callback(null, response.message);
-        }
-      }
-    }
-  });
-  return {
-    cancel: function () {
-      callback = null;
-      client.close();
-    }
-  };
-};
 
 CustomerTalkServiceClient.prototype.queryTalks = function queryTalks(requestMessage, metadata, callback) {
   if (arguments.length === 2) {
@@ -261,4 +181,194 @@ ServiceTalkServiceClient.prototype.service = function service(metadata) {
 };
 
 exports.ServiceTalkServiceClient = ServiceTalkServiceClient;
+
+var CustomerUserServicer = (function () {
+  function CustomerUserServicer() {}
+  CustomerUserServicer.serviceName = "CustomerUserServicer";
+  return CustomerUserServicer;
+}());
+
+CustomerUserServicer.CheckToken = {
+  methodName: "CheckToken",
+  service: CustomerUserServicer,
+  requestStream: false,
+  responseStream: false,
+  requestType: proto_customer_talk_service_pb.CheckTokenRequest,
+  responseType: proto_customer_talk_service_pb.CheckTokenResponse
+};
+
+CustomerUserServicer.CreateToken = {
+  methodName: "CreateToken",
+  service: CustomerUserServicer,
+  requestStream: false,
+  responseStream: false,
+  requestType: proto_customer_talk_service_pb.CreateTokenRequest,
+  responseType: proto_customer_talk_service_pb.CreateTokenResponse
+};
+
+exports.CustomerUserServicer = CustomerUserServicer;
+
+function CustomerUserServicerClient(serviceHost, options) {
+  this.serviceHost = serviceHost;
+  this.options = options || {};
+}
+
+CustomerUserServicerClient.prototype.checkToken = function checkToken(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(CustomerUserServicer.CheckToken, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+CustomerUserServicerClient.prototype.createToken = function createToken(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(CustomerUserServicer.CreateToken, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+exports.CustomerUserServicerClient = CustomerUserServicerClient;
+
+var ServicerUserServicer = (function () {
+  function ServicerUserServicer() {}
+  ServicerUserServicer.serviceName = "ServicerUserServicer";
+  return ServicerUserServicer;
+}());
+
+ServicerUserServicer.Register = {
+  methodName: "Register",
+  service: ServicerUserServicer,
+  requestStream: false,
+  responseStream: false,
+  requestType: proto_customer_talk_service_pb.RegisterRequest,
+  responseType: proto_customer_talk_service_pb.RegisterResponse
+};
+
+ServicerUserServicer.Login = {
+  methodName: "Login",
+  service: ServicerUserServicer,
+  requestStream: false,
+  responseStream: false,
+  requestType: proto_customer_talk_service_pb.LoginRequest,
+  responseType: proto_customer_talk_service_pb.LoginResponse
+};
+
+exports.ServicerUserServicer = ServicerUserServicer;
+
+function ServicerUserServicerClient(serviceHost, options) {
+  this.serviceHost = serviceHost;
+  this.options = options || {};
+}
+
+ServicerUserServicerClient.prototype.register = function register(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(ServicerUserServicer.Register, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+ServicerUserServicerClient.prototype.login = function login(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(ServicerUserServicer.Login, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+exports.ServicerUserServicerClient = ServicerUserServicerClient;
 

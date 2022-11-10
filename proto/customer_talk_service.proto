@@ -21,27 +21,6 @@ message TalkKickOutMessage {
 //
 //
 //
-
-message CheckTokenRequest {
-
-}
-
-message CheckTokenResponse {
-  bool valid = 1;
-  string user_name = 2;
-  string new_token = 3;
-}
-
-message CreateTokenRequest {
-  string user_name = 1;
-}
-
-message CreateTokenResponse {
-  string token = 1;
-  string user_name = 2;
-  int64 expires = 3;
-}
-
 message QueryTalksRequest {
   repeated TalkStatus statuses = 1;
 }
@@ -126,8 +105,6 @@ message TalkResponse {
 }
 
 service CustomerTalkService {
-  rpc CheckToken(CheckTokenRequest) returns (CheckTokenResponse) {}
-  rpc CreateToken(CreateTokenRequest) returns (CreateTokenResponse) {}
   rpc QueryTalks(QueryTalksRequest) returns (QueryTalksResponse) {}
 
   rpc Talk(stream TalkRequest) returns (stream TalkResponse) {}
@@ -233,4 +210,53 @@ message ServiceResponse {
 
 service ServiceTalkService {
   rpc Service(stream ServiceRequest) returns (stream ServiceResponse) {}
+}
+
+message CheckTokenRequest {
+
+}
+
+message CheckTokenResponse {
+  bool valid = 1;
+  string user_name = 2;
+  string new_token = 3;
+}
+
+message CreateTokenRequest {
+  string user_name = 1;
+}
+
+message CreateTokenResponse {
+  string token = 1;
+  string user_name = 2;
+}
+
+service CustomerUserServicer {
+  rpc CheckToken(CheckTokenRequest) returns (CheckTokenResponse) {}
+  rpc CreateToken(CreateTokenRequest) returns (CreateTokenResponse) {}
+}
+
+message RegisterRequest {
+  string user_name = 1;
+  string password = 2;
+}
+
+message RegisterResponse {
+  string token = 1;
+  string user_name = 2;
+}
+
+message LoginRequest {
+  string user_name = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  string token = 1;
+  string user_name = 2;
+}
+
+service ServicerUserServicer {
+  rpc Register(RegisterRequest) returns (RegisterResponse) {}
+  rpc Login(LoginRequest) returns (LoginResponse) {}
 }

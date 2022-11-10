@@ -199,11 +199,27 @@
                 </li>
               
                 <li>
+                  <a href="#.LoginRequest"><span class="badge">M</span>LoginRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#.LoginResponse"><span class="badge">M</span>LoginResponse</a>
+                </li>
+              
+                <li>
                   <a href="#.QueryTalksRequest"><span class="badge">M</span>QueryTalksRequest</a>
                 </li>
               
                 <li>
                   <a href="#.QueryTalksResponse"><span class="badge">M</span>QueryTalksResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#.RegisterRequest"><span class="badge">M</span>RegisterRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#.RegisterResponse"><span class="badge">M</span>RegisterResponse</a>
                 </li>
               
                 <li>
@@ -334,7 +350,15 @@
                 </li>
               
                 <li>
+                  <a href="#.CustomerUserServicer"><span class="badge">S</span>CustomerUserServicer</a>
+                </li>
+              
+                <li>
                   <a href="#.ServiceTalkService"><span class="badge">S</span>ServiceTalkService</a>
+                </li>
+              
+                <li>
+                  <a href="#.ServicerUserServicer"><span class="badge">S</span>ServicerUserServicer</a>
                 </li>
               
             </ul>
@@ -445,13 +469,6 @@
                   <td><p> </p></td>
                 </tr>
               
-                <tr>
-                  <td>expires</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
             </tbody>
           </table>
 
@@ -463,6 +480,68 @@
         <p></p>
 
         
+
+        
+      
+        <h3 id=".LoginRequest">LoginRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>password</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".LoginResponse">LoginResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
 
         
       
@@ -504,6 +583,68 @@
                   <td>talks</td>
                   <td><a href="#TalkInfo">TalkInfo</a></td>
                   <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".RegisterRequest">RegisterRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>password</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id=".RegisterResponse">RegisterResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
                   <td><p> </p></td>
                 </tr>
               
@@ -1466,20 +1607,6 @@
           <tbody>
             
               <tr>
-                <td>CheckToken</td>
-                <td><a href="#CheckTokenRequest">.CheckTokenRequest</a></td>
-                <td><a href="#CheckTokenResponse">.CheckTokenResponse</a></td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
-                <td>CreateToken</td>
-                <td><a href="#CreateTokenRequest">.CreateTokenRequest</a></td>
-                <td><a href="#CreateTokenResponse">.CreateTokenResponse</a></td>
-                <td><p></p></td>
-              </tr>
-            
-              <tr>
                 <td>QueryTalks</td>
                 <td><a href="#QueryTalksRequest">.QueryTalksRequest</a></td>
                 <td><a href="#QueryTalksResponse">.QueryTalksResponse</a></td>
@@ -1490,6 +1617,32 @@
                 <td>Talk</td>
                 <td><a href="#TalkRequest">.TalkRequest</a> stream</td>
                 <td><a href="#TalkResponse">.TalkResponse</a> stream</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+        <h3 id=".CustomerUserServicer">CustomerUserServicer</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CheckToken</td>
+                <td><a href="#CheckTokenRequest">.CheckTokenRequest</a></td>
+                <td><a href="#CheckTokenResponse">.CheckTokenResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>CreateToken</td>
+                <td><a href="#CreateTokenRequest">.CreateTokenRequest</a></td>
+                <td><a href="#CreateTokenResponse">.CreateTokenResponse</a></td>
                 <td><p></p></td>
               </tr>
             
@@ -1509,6 +1662,32 @@
                 <td>Service</td>
                 <td><a href="#ServiceRequest">.ServiceRequest</a> stream</td>
                 <td><a href="#ServiceResponse">.ServiceResponse</a> stream</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+
+        
+        <h3 id=".ServicerUserServicer">ServicerUserServicer</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>Register</td>
+                <td><a href="#RegisterRequest">.RegisterRequest</a></td>
+                <td><a href="#RegisterResponse">.RegisterResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>Login</td>
+                <td><a href="#LoginRequest">.LoginRequest</a></td>
+                <td><a href="#LoginResponse">.LoginResponse</a></td>
                 <td><p></p></td>
               </tr>
             
