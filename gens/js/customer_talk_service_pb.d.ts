@@ -81,6 +81,9 @@ export class TalkInfo extends jspb.Message {
   getFinishedAt(): number;
   setFinishedAt(value: number): void;
 
+  getCustomerName(): string;
+  setCustomerName(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TalkInfo.AsObject;
   static toObject(includeInstance: boolean, msg: TalkInfo): TalkInfo.AsObject;
@@ -98,6 +101,7 @@ export namespace TalkInfo {
     title: string,
     startedAt: number,
     finishedAt: number,
+    customerName: string,
   }
 }
 

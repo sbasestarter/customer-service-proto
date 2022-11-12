@@ -37,6 +37,7 @@ message TalkInfo {
   string title = 3;
   uint64 started_at = 4;
   uint64 finished_at = 5;
+  string customer_name = 6;
 }
 
 message QueryTalksResponse {

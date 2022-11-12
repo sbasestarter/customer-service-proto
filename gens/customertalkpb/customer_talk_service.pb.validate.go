@@ -373,6 +373,8 @@ func (m *TalkInfo) validate(all bool) error {
 
 	// no validation rules for FinishedAt
 
+	// no validation rules for CustomerName
+
 	if len(errors) > 0 {
 		return TalkInfoMultiError(errors)
 	}
