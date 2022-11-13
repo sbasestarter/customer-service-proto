@@ -1587,6 +1587,110 @@ var _ interface {
 	ErrorName() string
 } = TalkMessageConfirmedValidationError{}
 
+// Validate checks the field values on TalkNotifyResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *TalkNotifyResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on TalkNotifyResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// TalkNotifyResponseMultiError, or nil if none found.
+func (m *TalkNotifyResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *TalkNotifyResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Msg
+
+	if len(errors) > 0 {
+		return TalkNotifyResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// TalkNotifyResponseMultiError is an error wrapping multiple validation errors
+// returned by TalkNotifyResponse.ValidateAll() if the designated constraints
+// aren't met.
+type TalkNotifyResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m TalkNotifyResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m TalkNotifyResponseMultiError) AllErrors() []error { return m }
+
+// TalkNotifyResponseValidationError is the validation error returned by
+// TalkNotifyResponse.Validate if the designated constraints aren't met.
+type TalkNotifyResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e TalkNotifyResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e TalkNotifyResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e TalkNotifyResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e TalkNotifyResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e TalkNotifyResponseValidationError) ErrorName() string {
+	return "TalkNotifyResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e TalkNotifyResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sTalkNotifyResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = TalkNotifyResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = TalkNotifyResponseValidationError{}
+
 // Validate checks the field values on TalkResponse with the rules defined in
 // the proto definition for this message. If any rules are violated, the first
 // error encountered is returned, or nil if there are no violations.
@@ -1760,6 +1864,37 @@ func (m *TalkResponse) validate(all bool) error {
 			if err := v.Validate(); err != nil {
 				return TalkResponseValidationError{
 					field:  "Close",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	case *TalkResponse_Notify:
+
+		if all {
+			switch v := interface{}(m.GetNotify()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, TalkResponseValidationError{
+						field:  "Notify",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, TalkResponseValidationError{
+						field:  "Notify",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetNotify()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return TalkResponseValidationError{
+					field:  "Notify",
 					reason: "embedded message failed validation",
 					cause:  err,
 				}

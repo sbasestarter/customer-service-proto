@@ -94,6 +94,10 @@ message TalkMessageConfirmed {
   uint64 at = 2;
 }
 
+message TalkNotifyResponse {
+  string msg = 1;
+}
+
 message TalkResponse {
   oneof Talk {
     TalkKickOutMessage kick_out = 1;
@@ -101,6 +105,7 @@ message TalkResponse {
     TalkMessage message = 3;
     TalkMessageConfirmed message_confirmed = 4;
     TalkClose close = 5;
+    TalkNotifyResponse notify = 6;
   }
 }
 

@@ -372,6 +372,26 @@ export namespace TalkMessageConfirmed {
   }
 }
 
+export class TalkNotifyResponse extends jspb.Message {
+  getMsg(): string;
+  setMsg(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TalkNotifyResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: TalkNotifyResponse): TalkNotifyResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: TalkNotifyResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TalkNotifyResponse;
+  static deserializeBinaryFromReader(message: TalkNotifyResponse, reader: jspb.BinaryReader): TalkNotifyResponse;
+}
+
+export namespace TalkNotifyResponse {
+  export type AsObject = {
+    msg: string,
+  }
+}
+
 export class TalkResponse extends jspb.Message {
   hasKickOut(): boolean;
   clearKickOut(): void;
@@ -398,6 +418,11 @@ export class TalkResponse extends jspb.Message {
   getClose(): TalkClose | undefined;
   setClose(value?: TalkClose): void;
 
+  hasNotify(): boolean;
+  clearNotify(): void;
+  getNotify(): TalkNotifyResponse | undefined;
+  setNotify(value?: TalkNotifyResponse): void;
+
   getTalkCase(): TalkResponse.TalkCase;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TalkResponse.AsObject;
@@ -416,6 +441,7 @@ export namespace TalkResponse {
     message?: TalkMessage.AsObject,
     messageConfirmed?: TalkMessageConfirmed.AsObject,
     close?: TalkClose.AsObject,
+    notify?: TalkNotifyResponse.AsObject,
   }
 
   export enum TalkCase {
@@ -425,6 +451,7 @@ export namespace TalkResponse {
     MESSAGE = 3,
     MESSAGE_CONFIRMED = 4,
     CLOSE = 5,
+    NOTIFY = 6,
   }
 }
 
