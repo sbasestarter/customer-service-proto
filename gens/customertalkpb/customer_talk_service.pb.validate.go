@@ -3989,6 +3989,8 @@ func (m *ServiceTalkClose) validate(all bool) error {
 
 	var errors []error
 
+	// no validation rules for TalkId
+
 	if len(errors) > 0 {
 		return ServiceTalkCloseMultiError(errors)
 	}

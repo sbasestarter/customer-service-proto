@@ -73,7 +73,6 @@ message TalkMessage {
 }
 
 message TalkClose {
-
 }
 
 message TalkRequest {
@@ -191,7 +190,7 @@ message ServiceMessageConfirmed {
 }
 
 message ServiceTalkClose {
-
+  string talk_id = 1;
 }
 
 message ServiceResponse {

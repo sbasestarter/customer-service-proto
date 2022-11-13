@@ -826,6 +826,9 @@ export namespace ServiceMessageConfirmed {
 }
 
 export class ServiceTalkClose extends jspb.Message {
+  getTalkId(): string;
+  setTalkId(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ServiceTalkClose.AsObject;
   static toObject(includeInstance: boolean, msg: ServiceTalkClose): ServiceTalkClose.AsObject;
@@ -838,6 +841,7 @@ export class ServiceTalkClose extends jspb.Message {
 
 export namespace ServiceTalkClose {
   export type AsObject = {
+    talkId: string,
   }
 }
 

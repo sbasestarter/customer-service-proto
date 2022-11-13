@@ -6556,7 +6556,7 @@ proto.ServiceTalkClose.prototype.toObject = function(opt_includeInstance) {
  */
 proto.ServiceTalkClose.toObject = function(includeInstance, msg) {
   var f, obj = {
-
+    talkId: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -6593,6 +6593,10 @@ proto.ServiceTalkClose.deserializeBinaryFromReader = function(msg, reader) {
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTalkId(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -6622,6 +6626,31 @@ proto.ServiceTalkClose.prototype.serializeBinary = function() {
  */
 proto.ServiceTalkClose.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getTalkId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
+};
+
+
+/**
+ * optional string talk_id = 1;
+ * @return {string}
+ */
+proto.ServiceTalkClose.prototype.getTalkId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.ServiceTalkClose} returns this
+ */
+proto.ServiceTalkClose.prototype.setTalkId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
